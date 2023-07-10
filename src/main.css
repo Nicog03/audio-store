@@ -5,3 +5,14 @@
   list-style: none;
   text-decoration: none;
 }
+
+:root {
+  --color-dark-grey: #7f7f7f;
+  --color-grey: #bababa;
+  --color-light-grey-1: #f6f6f6;
+  --color-light-grey-2: #f3f3f3;
+  --color-white: #fff;
+  --color-green: #0acf83;
+  --color-black: #000;
+  --color-yellow: #ffc120;
+}
