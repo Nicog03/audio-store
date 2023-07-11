@@ -1,0 +1,19 @@
+.listItem {
+  width: fit-content;
+  color: var(--color-dark-grey);
+  padding-block: 0.15rem;
+  border-radius: 1.875rem;
+  font-size: 0.875rem;
+}
+
+.link {
+  width: fit-content;
+  color: var(--color-dark-grey);
+  padding: 0.15rem 0.9rem;
+  border-radius: 1.875rem;
+}
+
+.active {
+  background-color: var(--color-green);
+  color: white;
+}
