@@ -1,0 +1,51 @@
+.container {
+  position: relative;
+  color: var(--color-grey);
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  height: 2.813rem;
+}
+
+.container input {
+  position: absolute;
+  height: 2.813rem;
+  width: 100%;
+  border: var(--color-grey) 1px solid;
+  border-radius: 0.625rem;
+  padding-inline-start: 1rem;
+}
+
+.withIcon {
+  padding-inline-start: 3rem !important;
+}
+
+.innerContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  gap: 0.75rem;
+  margin-inline-start: 1rem;
+  margin-block: auto;
+}
+
+.innerContainer div {
+  display: flex;
+}
+
+.container input:focus {
+  border-color: var(--color-black);
+  outline: none;
+}
+
+.container input:focus + .innerContainer label {
+  display: none;
+}
+
+.container input:focus + .innerContainer .icon {
+  color: var(--color-black);
+}
+
+.container input:not(:placeholder-shown) + .innerContainer label {
+  display: none;
+}
