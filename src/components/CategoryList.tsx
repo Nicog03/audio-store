@@ -17,11 +17,11 @@ const splideOptions = {
 
 const CategoryList = () => {
   return (
-    <ul className={classes.UlList}>
-      <Splide options={splideOptions} aria-label="list of items categories">
+    <Splide options={splideOptions} aria-label="list of items categories">
+      <div className={classes.categoriesList}>
         {categoriesArray.map((category) => (
-          <SplideSlide>
-            <li className={classes.listItem}>
+          <SplideSlide className={classes}>
+            <div className={classes.listItem}>
               <NavLink
                 className={({ isActive }) =>
                   isActive ? `${classes.active} ${classes.link}` : classes.link
@@ -30,11 +30,11 @@ const CategoryList = () => {
               >
                 {category}
               </NavLink>
-            </li>
+            </div>
           </SplideSlide>
         ))}
-      </Splide>
-    </ul>
+      </div>
+    </Splide>
   );
 };
 
