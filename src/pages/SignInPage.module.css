@@ -1,0 +1,92 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(transparent, var(--color-black)),
+    linear-gradient(var(--color-green), transparent),
+    url("./src/assets/png/login-bg.png");
+  background-position: center bottom;
+  height: 100vh;
+  color: var(--color-white);
+  justify-content: space-around;
+  font-size: 0.875rem;
+}
+
+.header {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-inline: 1.5rem;
+  gap: 1.25rem;
+}
+
+.form input {
+  background-color: var(--color-white);
+  border: var(--color-grey) 1px solid;
+  border-radius: 0.625rem;
+  height: 3.125rem;
+  position: relative;
+  padding-inline-start: 3rem;
+}
+
+.form a {
+  color: inherit;
+  font-weight: bold;
+}
+
+.form button {
+  background-color: var(--color-green);
+  border: none;
+  border-radius: 0.625rem;
+  height: 3.125rem;
+  color: var(--color-white);
+  font-weight: bold;
+  margin-block-end: 1.5rem;
+}
+
+.inputContainer {
+  display: grid;
+}
+
+.inputContainer input:focus + .label label {
+  display: none;
+}
+
+.inputContainer input:not(:placeholder-shown) + .label label {
+  display: none;
+}
+
+.label {
+  position: absolute;
+  color: var(--color-grey);
+  z-index: 1;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-inline-start: 1rem;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.SignUpParagraph a {
+  color: var(--color-green);
+  font-weight: bold;
+  text-decoration: underline;
+}
