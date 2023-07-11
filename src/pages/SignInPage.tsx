@@ -1,7 +1,13 @@
+import { useState } from "react";
 import classes from "./SignInPage.module.css";
 import { Mail, Lock } from "react-feather";
+import { Link } from "react-router-dom";
 
-const SignIn = () => {
+interface propTypes {
+  mode: "signin" | "signup";
+}
+
+const SignInPage: React.FC<propTypes> = ({ mode }) => {
   return (
     <div className={classes.container}>
       <hgroup className={classes.header}>
@@ -35,4 +41,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInPage;
