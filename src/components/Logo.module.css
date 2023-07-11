@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.446rem;
+  width: fit-content;
+}
+
+.container h1 {
+  font-size: 1.188rem;
+}
