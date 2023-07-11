@@ -1,0 +1,19 @@
+.cardContainer {
+  width: 9.688rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.938rem 0.625rem;
+  background-color: var(--color-white);
+  border-radius: 0.938rem;
+  gap: 1.25rem;
+}
+
+.info h3 {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.info p {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
