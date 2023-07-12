@@ -4,7 +4,7 @@ import ProductCarouselLarge from "../components/ProductCarouselLarge";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
 import Logo from "../components/Logo";
 import { Search } from "react-feather";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -32,12 +32,18 @@ export interface ProductType {
 const HomePage = () => {
   const [data, setData] = useState<ProductType[]>([]);
 
+  const { category } = useParams();
+
   useEffect(() => {
     axios
       .get<ProductType[]>(baseURL)
       .then((response) => setData(response.data))
       .catch((error) => console.error(error));
   }, []);
+
+  const categoryArray: ProductType[] = data.filter(
+    (item) => item.category.toLowerCase() === category
+  );
 
   return (
     <div className={classes.container}>
