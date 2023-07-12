@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from "./App.tsx";
 import HomePage from "./pages/HomePage.tsx";
-import Logo from "./components/Logo.tsx";
 import "./main.css";
 import SignInPage from "./pages/SignInPage.tsx";
 
