@@ -6,6 +6,10 @@ import Logo from "../components/Logo";
 import { Search } from "react-feather";
 import { Link } from "react-router-dom";
 import classes from "./HomePage.module.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
 interface ReviewType {
   user: string;
@@ -26,6 +30,15 @@ export interface ProductType {
 }
 
 const HomePage = () => {
+  const [data, setData] = useState<ProductType[]>([]);
+
+  useEffect(() => {
+    axios
+      .get<ProductType[]>(baseURL)
+      .then((response) => setData(response.data))
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div className={classes.container}>
       <header className={classes.header}>
