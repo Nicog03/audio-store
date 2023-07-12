@@ -3,8 +3,13 @@ import classes from "./CompactProductCard.module.css";
 import { MoreVertical } from "react-feather";
 
 import StarIcon from "./StarIcon";
+import { ProductType } from "../pages/HomePage";
 
-const CompactProductCard = () => {
+interface PropType {
+  productInfo: ProductType;
+}
+
+const CompactProductCard: React.FC<PropType> = ({ productInfo }) => {
   return (
     <div className={classes.container}>
       <div className={classes.imageContainer}>
@@ -12,16 +17,16 @@ const CompactProductCard = () => {
       </div>
       <div className={classes.rightSide}>
         <div className={classes.productInfoContainer}>
-          <p className={classes.productTitle}>TMA-2 Comfort Wireless</p>
-          <p className={classes.price}>USD 270</p>
+          <p className={classes.productTitle}>{productInfo.name}</p>
+          <p className={classes.price}>USD {productInfo.price}</p>
         </div>
         <div className={classes.bottomContainer}>
           <div className={classes.reviewSection}>
             <div className={classes.starSection}>
               <StarIcon />
-              <p>4.6</p>
+              <p>{productInfo.rating}</p>
             </div>
-            <p>3 Reviews</p>
+            <p>{productInfo.reviews.length} Reviews</p>
           </div>
           <MoreVertical className={classes.optionsIcon} />
         </div>
