@@ -39,6 +39,8 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const { category } = useParams();
   const navigate = useNavigate();
 
+  const searchMode = mode === "search";
+
   useEffect(() => {
     axios
       .get<ProductType[]>(baseURL)
@@ -62,25 +64,29 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
         <div className={classes.profile}></div>
       </header>
       <div className={classes.firstSection}>
-        <div className={classes.greetings}>
-          <p>Hi, Andrea</p>
-          <h3>What are you looking for today?</h3>
-        </div>
+        {!searchMode && (
+          <div className={classes.greetings}>
+            <p>Hi, Andrea</p>
+            <h3>What are you looking for today?</h3>
+          </div>
+        )}
         <TextInput
           icon={<Search />}
           placeholder="Search headphone"
           focusAction={changePageModeHandler}
         />
       </div>
-      <div className={classes.products}>
-        <CategoryList />
-        <ProductCarouselLarge products={categoryArray} />
-        <div className={classes.featuredHeading}>
-          <p>Featured Products</p>
-          <Link to="/">See All</Link>
+      {!searchMode && (
+        <div className={classes.products}>
+          <CategoryList />
+          <ProductCarouselLarge products={categoryArray} />
+          <div className={classes.featuredHeading}>
+            <p>Featured Products</p>
+            <Link to="/">See All</Link>
+          </div>
+          <ProductCarouselMedium products={categoryArray} />
         </div>
-        <ProductCarouselMedium products={categoryArray} />
-      </div>
+      )}
     </div>
   );
 };
