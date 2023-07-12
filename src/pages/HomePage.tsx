@@ -29,7 +29,11 @@ export interface ProductType {
   reviews: ReviewType[];
 }
 
-const HomePage = () => {
+interface PropTypes {
+  mode?: "search";
+}
+
+const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const [data, setData] = useState<ProductType[]>([]);
 
   const { category } = useParams();
