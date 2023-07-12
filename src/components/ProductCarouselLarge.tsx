@@ -16,18 +16,16 @@ interface PropTypes {
 }
 
 const ProductCarouselLarge: React.FC<PropTypes> = ({ products }) => {
+  const filteredArray = products.filter((product) => product.rating === 5);
+
   return (
     <>
       <Splide options={splideOptions}>
-        <SplideSlide>
-          <LargeProductCard />
-        </SplideSlide>
-        <SplideSlide>
-          <LargeProductCard />
-        </SplideSlide>
-        <SplideSlide>
-          <LargeProductCard />
-        </SplideSlide>
+        {filteredArray.map((product) => (
+          <SplideSlide>
+            <LargeProductCard productInfo={product} />
+          </SplideSlide>
+        ))}
       </Splide>
     </>
   );
