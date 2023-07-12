@@ -1,14 +1,19 @@
 import classes from "./MediumProductCard.module.css";
+import { ProductType } from "../pages/HomePage";
 
-const MediumProductCard = () => {
+interface PropType {
+  productInfo: ProductType;
+}
+
+const MediumProductCard: React.FC<PropType> = ({ productInfo }) => {
   return (
     <>
       <div className={classes.cardContainer}>
         <img src="src/assets/png/headset.png" alt="image of a headphone" />
 
         <div className={classes.info}>
-          <h3>TMA - 2 HD Wireless</h3>
-          <p>USD 350</p>
+          <h3>{productInfo.name}</h3>
+          <p>USD {productInfo.price}</p>
         </div>
       </div>
     </>
