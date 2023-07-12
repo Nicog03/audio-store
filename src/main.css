@@ -18,10 +18,8 @@
   --color-yellow: #ffc120;
 }
 
-html {
-  height: 100%;
-}
-
-body {
+html,
+body,
+#root {
   height: 100%;
 }
