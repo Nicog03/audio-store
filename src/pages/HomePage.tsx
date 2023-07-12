@@ -8,6 +8,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ProductArrayCompact from "../components/ProductArrayCompact";
 
 const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
@@ -87,6 +88,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
           <ProductCarouselMedium products={categoryArray} />
         </div>
       )}
+      {searchMode && <ProductArrayCompact products={data} />}
     </div>
   );
 };
