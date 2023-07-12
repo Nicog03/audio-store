@@ -19,15 +19,11 @@ interface propTypes {
 const ProductCarouselMedium: React.FC<propTypes> = ({ products }) => {
   return (
     <Splide options={splideOptions}>
-      <SplideSlide>
-        <MediumProductCard />
-      </SplideSlide>
-      <SplideSlide>
-        <MediumProductCard />
-      </SplideSlide>
-      <SplideSlide>
-        <MediumProductCard />
-      </SplideSlide>
+      {products.map((product) => (
+        <SplideSlide>
+          <MediumProductCard productInfo={product} />
+        </SplideSlide>
+      ))}
     </Splide>
   );
 };
