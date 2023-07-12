@@ -9,9 +9,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":category",
-        element: <HomePage />,
+        element: <HomePage mode={"default"} />,
       },
     ],
+  },
+  {
+    path: "/search",
+    element: <HomePage mode={"search"} />,
   },
   {
     path: "/signin",
