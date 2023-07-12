@@ -7,6 +7,24 @@ import { Search } from "react-feather";
 import { Link } from "react-router-dom";
 import classes from "./HomePage.module.css";
 
+interface ReviewType {
+  user: string;
+  description: string;
+  rating: number;
+  date: string;
+}
+
+export interface ProductType {
+  imageUrl: string;
+  rating: number;
+  price: string;
+  name: string;
+  description: string;
+  category: string;
+  created_at: string;
+  reviews: ReviewType[];
+}
+
 const HomePage = () => {
   return (
     <div className={classes.container}>
