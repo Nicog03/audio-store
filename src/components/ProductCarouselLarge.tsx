@@ -1,6 +1,7 @@
 import LargeProductCard from "./LargeProductCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { ProductType } from "../pages/HomePage";
 
 const splideOptions = {
   autoWidth: true,
@@ -10,7 +11,11 @@ const splideOptions = {
   pagination: false,
 };
 
-const ProductCarouselLarge = () => {
+interface PropTypes {
+  products: ProductType[];
+}
+
+const ProductCarouselLarge: React.FC<PropTypes> = ({ products }) => {
   return (
     <>
       <Splide options={splideOptions}>
