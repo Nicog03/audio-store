@@ -2,6 +2,7 @@ import MediumProductCard from "./MediumProducCard";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { ProductType } from "../pages/HomePage";
 
 const splideOptions = {
   autoWidth: true,
@@ -11,7 +12,11 @@ const splideOptions = {
   pagination: false,
 };
 
-const ProductCarouselMedium = () => {
+interface propTypes {
+  products: ProductType[];
+}
+
+const ProductCarouselMedium: React.FC<propTypes> = ({ products }) => {
   return (
     <Splide options={splideOptions}>
       <SplideSlide>
