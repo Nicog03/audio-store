@@ -88,7 +88,12 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
           <ProductCarouselMedium products={categoryArray} />
         </div>
       )}
-      {searchMode && <ProductArrayCompact products={data} />}
+      {searchMode && (
+        <section className={classes.popularProductsSection}>
+          <h3 className={classes.popularProductsHeader}>Popular products</h3>
+          <ProductArrayCompact products={data} />
+        </section>
+      )}
     </div>
   );
 };
