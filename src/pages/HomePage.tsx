@@ -61,12 +61,12 @@ const HomePage = () => {
       </div>
       <div className={classes.products}>
         <CategoryList />
-        <ProductCarouselLarge />
+        <ProductCarouselLarge products={categoryArray} />
         <div className={classes.featuredHeading}>
           <p>Featured Products</p>
           <Link to="/">See All</Link>
         </div>
-        <ProductCarouselMedium />
+        <ProductCarouselMedium products={categoryArray} />
       </div>
     </div>
   );
