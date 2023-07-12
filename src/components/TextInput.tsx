@@ -5,12 +5,14 @@ import classes from "./TextInput.module.css";
 interface propTypes {
   icon?: ReactNode;
   placeholder: string;
+  focusAction: React.FocusEventHandler<HTMLElement>;
 }
 
-const TextInput: React.FC<propTypes> = ({ icon, placeholder }) => {
+const TextInput: React.FC<propTypes> = ({ icon, placeholder, focusAction }) => {
   return (
     <div className={classes.container}>
       <input
+        onFocus={focusAction}
         id={placeholder}
         className={icon ? classes.withIcon : undefined}
         placeholder=" "
