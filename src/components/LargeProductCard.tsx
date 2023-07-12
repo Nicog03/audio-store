@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 import classes from "./LargeProductCard.module.css";
 import { ArrowRight } from "react-feather";
+import { ProductType } from "../pages/HomePage";
 
-const LargeProductCard = () => {
+interface propType {
+  productInfo: ProductType;
+}
+
+const LargeProductCard: React.FC<propType> = ({ productInfo }) => {
   return (
     <>
       <div className={classes.container}>
         <div className={classes.leftSide}>
-          <h2>TMA-2 Modular Headphone</h2>
+          <h2>{productInfo.name}</h2>
           <Link className={classes.link} to="/">
             Shop now <ArrowRight />
           </Link>
