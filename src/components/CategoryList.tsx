@@ -1,4 +1,9 @@
-const categoriesArray: string[] = ["Headphone", "Headband", "Earpads", "Cable"];
+const categoriesArray: string[] = [
+  "Headphones",
+  "Headsets",
+  "Earpads",
+  "Cable",
+];
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
