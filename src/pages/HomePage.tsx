@@ -60,11 +60,15 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   const filterArrayHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilteredArray(
-      data.filter((item) =>
-        item.name.toLowerCase().startsWith(e.target.value.toLowerCase())
-      )
-    );
+    if (e.target.value) {
+      setFilteredArray(
+        data.filter((item) =>
+          item.name.toLowerCase().startsWith(e.target.value.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredArray(data);
+    }
   };
 
   return (
