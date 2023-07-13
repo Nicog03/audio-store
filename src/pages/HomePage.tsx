@@ -59,11 +59,16 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
 
   return (
     <div className={classes.container}>
-      <header className={classes.header}>
-        <img src="src/assets/svg/menu.svg" alt="" />
-        <Logo />
-        <div className={classes.profile}></div>
-      </header>
+      {searchMode ? (
+        <SearchHeader />
+      ) : (
+        <header className={classes.header}>
+          <img src="src/assets/svg/menu.svg" alt="" />
+          <Logo />
+          <div className={classes.profile}></div>
+        </header>
+      )}
+
       <div className={classes.firstSection}>
         {!searchMode && (
           <div className={classes.greetings}>
