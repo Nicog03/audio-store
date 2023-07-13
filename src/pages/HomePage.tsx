@@ -9,6 +9,7 @@ import classes from "./HomePage.module.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
+import SearchHeader from "../components/SearchHeader";
 
 const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
