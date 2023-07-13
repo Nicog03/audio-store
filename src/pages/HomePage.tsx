@@ -105,7 +105,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
           <ProductCarouselLarge products={categoryArray} />
           <div className={classes.featuredHeading}>
             <p>Featured Products</p>
-            <Link to="/">See All</Link>
+            <Link to="/all-products">See All</Link>
           </div>
           <ProductCarouselMedium products={categoryArray} />
         </div>
