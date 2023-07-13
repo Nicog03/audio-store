@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.upperContainer {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 1.5rem;
+  gap: 1.25rem;
+  padding-block-end: 2.313rem;
+}
+
+.headingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.688rem;
+}
+
+.headingContainer h2 {
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.productsSection {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background-color: var(--color-light-grey-2);
+  gap: 0.813rem;
+  border-radius: 1.875rem 1.875rem 0 0;
+}
