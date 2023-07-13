@@ -1,5 +1,6 @@
 import HomePage from "./pages/HomePage.tsx";
 import SignInPage from "./pages/SignInPage.tsx";
+import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     path: "/search",
     element: <HomePage mode={"search"} />,
   },
+  { path: "/all-products", element: <AllProductsPage /> },
   {
     path: "/signin",
     element: <SignInPage mode={"signin"} />,
