@@ -68,7 +68,9 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   return (
-    <div className={classes.container}>
+    <div
+      className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
+    >
       {searchMode ? (
         <SearchHeader />
       ) : (
