@@ -3,11 +3,12 @@ import classes from "./FilterButton.module.css";
 
 interface propType {
   filtersApplied?: number;
+  clickAction: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const FilterButton: React.FC<propType> = ({ filtersApplied }) => {
+const FilterButton: React.FC<propType> = ({ filtersApplied, clickAction }) => {
   return (
-    <button className={classes.container}>
+    <button onClick={clickAction} className={classes.container}>
       {filtersApplied ? (
         <div className={classes.quantity}>
           <p>{filtersApplied}</p>
