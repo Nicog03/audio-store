@@ -5,12 +5,16 @@ import { X } from "react-feather";
 import Button from "./Button";
 import SortOptions from "./SortOptions";
 
-const Filter = () => {
+interface PropType {
+  XClickAction: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Filter: React.FC<PropType> = ({ XClickAction }) => {
   return (
     <div className={classes.container}>
       <div className={classes.mainHeadingContainer}>
         <h2>Filter</h2>
-        <button className={classes.closeButton}>
+        <button onClick={XClickAction} className={classes.closeButton}>
           <X />
         </button>
       </div>
