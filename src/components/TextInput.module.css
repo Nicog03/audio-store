@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   height: 2.813rem;
+  width: 100%;
 }
 
 .container input {
