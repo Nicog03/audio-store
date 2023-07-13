@@ -17,3 +17,16 @@
   font-size: 0.75rem;
   font-weight: bold;
 }
+
+.reviewSection {
+  display: flex;
+  align-items: center;
+  font-size: 0.625rem;
+  gap: 0.625rem;
+}
+
+.ratingSection {
+  display: flex;
+  align-items: center;
+  gap: 0.188rem;
+}
