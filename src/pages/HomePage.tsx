@@ -60,7 +60,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   const filterArrayHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value) {
+    if (e.target.value.trim()) {
       setFilteredArray(
         data.filter((item) =>
           item.name.toLowerCase().startsWith(e.target.value.toLowerCase())
