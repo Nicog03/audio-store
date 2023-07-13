@@ -37,6 +37,7 @@ interface PropTypes {
 
 const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const [data, setData] = useState<ProductType[]>([]);
+  const [filteredArray, setFilteredArray] = useState<ProductType[]>([]);
 
   const { category } = useParams();
   const navigate = useNavigate();
@@ -56,6 +57,14 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
 
   const changePageModeHandler = () => {
     navigate("/search");
+  };
+
+  const filterArrayHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilteredArray(
+      data.filter((item) =>
+        item.name.toLowerCase().startsWith(e.target.value.toLowerCase())
+      )
+    );
   };
 
   return (
@@ -81,6 +90,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
           icon={<Search />}
           placeholder="Search headphone"
           focusAction={changePageModeHandler}
+          changeAction={filterArrayHandler}
         />
       </div>
       {!searchMode && (
@@ -97,7 +107,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
       {searchMode && (
         <section className={classes.popularProductsSection}>
           <h3 className={classes.popularProductsHeader}>Popular products</h3>
-          <ProductArrayCompact products={data} />
+          <ProductArrayCompact products={filteredArray} />
         </section>
       )}
     </div>
