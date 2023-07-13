@@ -5,10 +5,16 @@ import classes from "./TextInput.module.css";
 interface propTypes {
   icon?: ReactNode;
   placeholder: string;
-  focusAction: React.FocusEventHandler<HTMLElement>;
+  focusAction?: React.FocusEventHandler<HTMLElement>;
+  changeAction?: React.ChangeEventHandler<HTMLElement>;
 }
 
-const TextInput: React.FC<propTypes> = ({ icon, placeholder, focusAction }) => {
+const TextInput: React.FC<propTypes> = ({
+  icon,
+  placeholder,
+  focusAction,
+  changeAction,
+}) => {
   return (
     <div className={classes.container}>
       <input
@@ -17,6 +23,7 @@ const TextInput: React.FC<propTypes> = ({ icon, placeholder, focusAction }) => {
         className={icon ? classes.withIcon : undefined}
         placeholder=" "
         type="text"
+        onChange={changeAction}
       />
       <div className={classes.innerContainer}>
         {icon && <div className={classes.icon}>{icon}</div>}
