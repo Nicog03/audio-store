@@ -20,21 +20,45 @@ const splideOptions = {
   pagination: false,
 };
 
-const CategoryList = () => {
+interface propTypes {
+  isNavList?: boolean;
+}
+
+const CategoryList: React.FC<propTypes> = ({ isNavList = true }) => {
   return (
     <Splide options={splideOptions} aria-label="list of items categories">
       <div className={classes.categoriesList}>
         {categoriesArray.map((category) => (
           <SplideSlide className={classes}>
             <div className={classes.listItem}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? `${classes.active} ${classes.link}` : classes.link
-                }
-                to={category.toLowerCase()}
-              >
-                {category}
-              </NavLink>
+              {isNavList ? (
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${classes.active} ${classes.link}`
+                      : classes.link
+                  }
+                  to={category.toLowerCase()}
+                >
+                  {category}
+                </NavLink>
+              ) : (
+                <div className={classes.radioContainer}>
+                  <input
+                    className={classes.radioInput}
+                    type="radio"
+                    id={category}
+                    name="product_category"
+                    value={category}
+                  />
+                  <label
+                    className={`${classes.radioLabel} ${classes.listItem} ${classes.link}`}
+                    htmlFor={category}
+                  >
+                    {category}
+                  </label>
+                </div>
+              )}
             </div>
           </SplideSlide>
         ))}

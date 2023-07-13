@@ -12,7 +12,8 @@
   font-size: 0.875rem;
 }
 
-.active {
+.active,
+.radioInput:checked + .radioLabel {
   background-color: var(--color-green);
   color: white;
 }
@@ -20,4 +21,8 @@
 .categoriesList {
   display: flex;
   gap: 0.688rem;
+}
+
+.radioInput {
+  display: none;
 }
