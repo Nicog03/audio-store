@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":category",
-        element: <HomePage mode={"default"} />,
+        element: <HomePage />,
       },
     ],
   },
