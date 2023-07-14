@@ -22,9 +22,13 @@ const splideOptions = {
 
 interface propTypes {
   isNavList?: boolean;
+  inputChangeAction?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const CategoryList: React.FC<propTypes> = ({ isNavList = true }) => {
+const CategoryList: React.FC<propTypes> = ({
+  isNavList = true,
+  inputChangeAction,
+}) => {
   return (
     <Splide options={splideOptions} aria-label="list of items categories">
       <div className={classes.categoriesList}>
@@ -45,6 +49,7 @@ const CategoryList: React.FC<propTypes> = ({ isNavList = true }) => {
               ) : (
                 <div className={classes.radioContainer}>
                   <input
+                    onChange={inputChangeAction}
                     className={classes.radioInput}
                     type="radio"
                     id={category}
