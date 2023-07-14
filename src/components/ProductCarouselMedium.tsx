@@ -20,7 +20,7 @@ const ProductCarouselMedium: React.FC<propTypes> = ({ products }) => {
   return (
     <Splide options={splideOptions}>
       {products.map((product) => (
-        <SplideSlide>
+        <SplideSlide key={product.created_at}>
           <MediumProductCard productInfo={product} />
         </SplideSlide>
       ))}

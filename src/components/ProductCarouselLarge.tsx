@@ -22,7 +22,7 @@ const ProductCarouselLarge: React.FC<PropTypes> = ({ products }) => {
     <>
       <Splide options={splideOptions}>
         {filteredArray.map((product) => (
-          <SplideSlide>
+          <SplideSlide key={product.created_at}>
             <LargeProductCard productInfo={product} />
           </SplideSlide>
         ))}
