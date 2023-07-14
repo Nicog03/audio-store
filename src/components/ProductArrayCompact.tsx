@@ -10,7 +10,7 @@ const ProductArrayCompact: React.FC<PropType> = ({ products }) => {
   return (
     <div className={classes.container}>
       {products.map((product) => (
-        <CompactProductCard productInfo={product} />
+        <CompactProductCard key={product.created_at} productInfo={product} />
       ))}
     </div>
   );
