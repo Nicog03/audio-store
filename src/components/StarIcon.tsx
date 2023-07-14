@@ -13,8 +13,8 @@ const StarIcon: React.FC<PropType> = ({ height, filled = true }) => {
   ) : (
     <img
       style={{ height: height }}
-      src="src/assets/svg/star-filled.svg"
-      alt="icon of a yellow star"
+      src="src/assets/svg/star-outlined.svg"
+      alt="icon of a star outline"
     />
   );
 };
