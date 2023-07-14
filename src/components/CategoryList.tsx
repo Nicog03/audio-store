@@ -33,7 +33,7 @@ const CategoryList: React.FC<propTypes> = ({
     <Splide options={splideOptions} aria-label="list of items categories">
       <div className={classes.categoriesList}>
         {categoriesArray.map((category) => (
-          <SplideSlide className={classes}>
+          <SplideSlide key={category} className={classes}>
             <div className={classes.listItem}>
               {isNavList ? (
                 <NavLink
