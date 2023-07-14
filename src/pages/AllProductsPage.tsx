@@ -160,6 +160,50 @@ const AllProductsPage = () => {
     }
   }
 
+  if (filterData?.minPrice || filterData?.maxPrice) {
+    if (filteredArray) {
+      if (filterData.minPrice && filterData.maxPrice) {
+        filteredArray = filteredArray.filter(
+          (product) =>
+            +product.price.replace("$", "") > +filterData.minPrice &&
+            +product.price.replace("$", "") < +filterData.maxPrice
+        );
+      }
+
+      if (filterData.minPrice) {
+        filteredArray = filteredArray.filter(
+          (product) => +product.price.replace("$", "") > +filterData.minPrice
+        );
+      }
+
+      if (filterData.maxPrice) {
+        filteredArray = filteredArray.filter(
+          (product) => +product.price.replace("$", "") < +filterData.maxPrice
+        );
+      }
+    } else {
+      if (filterData.minPrice && filterData.maxPrice) {
+        filteredArray = data.filter(
+          (product) =>
+            +product.price.replace("$", "") > +filterData.minPrice &&
+            +product.price.replace("$", "") < +filterData.maxPrice
+        );
+      }
+
+      if (filterData.minPrice) {
+        filteredArray = data.filter(
+          (product) => +product.price.replace("$", "") > +filterData.minPrice
+        );
+      }
+
+      if (filterData.maxPrice) {
+        filteredArray = data.filter(
+          (product) => +product.price.replace("$", "") < +filterData.maxPrice
+        );
+      }
+    }
+  }
+
   return (
     <div className={classes.container}>
       <SearchHeader />
