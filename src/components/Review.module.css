@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-areas: "profile-picture info" "empty review-text";
+  flex-direction: column;
+  gap: 0.938rem;
+  column-gap: 0.875rem;
+  row-gap: 0.938rem;
+}
+
+.upperSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.813rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  grid-area: info;
+}
+
+.infoUpper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reviewDate {
+  font-size: 0.75rem;
+  color: var(--color-dark-grey);
+}
+
+.reviewText {
+  grid-area: review-text;
+  font-size: 0.875rem;
+}
