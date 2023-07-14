@@ -47,6 +47,119 @@ const AllProductsPage = () => {
     );
   }
 
+  const dataCopy = [...data];
+
+  if (filterData?.sortBy) {
+    switch (filterData.sortBy) {
+      case "popularity":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0
+          );
+        } else {
+          filteredArray = dataCopy.sort((a, b) =>
+            a.rating > b.rating ? -1 : a.rating < b.rating ? 1 : 0
+          );
+        }
+        break;
+      case "newest":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            a.created_at > b.created_at
+              ? -1
+              : a.created_at < b.created_at
+              ? 1
+              : 0
+          );
+        } else {
+          filteredArray = dataCopy.sort((a, b) =>
+            a.created_at > b.created_at
+              ? -1
+              : a.created_at < b.created_at
+              ? 1
+              : 0
+          );
+        }
+        break;
+      case "oldest":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            a.created_at < b.created_at
+              ? -1
+              : a.created_at > b.created_at
+              ? 1
+              : 0
+          );
+        } else {
+          filteredArray = dataCopy.sort((a, b) =>
+            a.created_at < b.created_at
+              ? -1
+              : a.created_at > b.created_at
+              ? 1
+              : 0
+          );
+        }
+        break;
+      case "high price":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            +a.price.replace("$", "") > +b.price.replace("$", "")
+              ? -1
+              : +a.price.replace("$", "") < +b.price.replace("$", "")
+              ? 1
+              : 0
+          );
+        } else {
+          filteredArray = dataCopy.sort((a, b) =>
+            +a.price.replace("$", "") > +b.price.replace("$", "")
+              ? -1
+              : +a.price.replace("$", "") < +b.price.replace("$", "")
+              ? 1
+              : 0
+          );
+        }
+        break;
+      case "low price":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            +a.price.replace("$", "") < +b.price.replace("$", "")
+              ? -1
+              : +a.price.replace("$", "") > +b.price.replace("$", "")
+              ? 1
+              : 0
+          );
+        } else {
+          filteredArray = data.sort((a, b) =>
+            +a.price.replace("$", "") < +b.price.replace("$", "")
+              ? -1
+              : +a.price.replace("$", "") > +b.price.replace("$", "")
+              ? 1
+              : 0
+          );
+        }
+        break;
+      case "reviews":
+        if (filteredArray) {
+          filteredArray = filteredArray?.sort((a, b) =>
+            a.reviews.length > b.reviews.length
+              ? -1
+              : a.reviews.length < b.reviews.length
+              ? 1
+              : 0
+          );
+        } else {
+          filteredArray = data.sort((a, b) =>
+            a.reviews.length > b.reviews.length
+              ? -1
+              : a.reviews.length < b.reviews.length
+              ? 1
+              : 0
+          );
+        }
+        break;
+    }
+  }
+
   return (
     <div className={classes.container}>
       <SearchHeader />
