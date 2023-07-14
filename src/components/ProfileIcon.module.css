@@ -1,0 +1,11 @@
+.image {
+  background-color: black;
+  height: 4.688rem;
+  width: 4.688rem;
+  border-radius: 50%;
+}
+
+.small {
+  height: 2.188rem !important;
+  width: 2.188rem !important;
+}
