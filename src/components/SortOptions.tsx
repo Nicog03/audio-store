@@ -17,7 +17,7 @@ const SortOptions: React.FC<PropType> = ({ changeAction }) => {
   return (
     <div className={classes.container}>
       {options.map((option) => (
-        <>
+        <div key={option}>
           <input
             onChange={changeAction}
             className={classes.input}
@@ -29,7 +29,7 @@ const SortOptions: React.FC<PropType> = ({ changeAction }) => {
           <label className={classes.label} htmlFor={option.toLowerCase()}>
             {option}
           </label>
-        </>
+        </div>
       ))}
     </div>
   );
