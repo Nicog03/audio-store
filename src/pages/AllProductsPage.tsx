@@ -39,6 +39,14 @@ const AllProductsPage = () => {
     setOpen(false);
   };
 
+  let filteredArray;
+
+  if (filterData?.category) {
+    filteredArray = data.filter(
+      (product) => product.category === filterData?.category
+    );
+  }
+
   return (
     <div className={classes.container}>
       <SearchHeader />
@@ -53,13 +61,21 @@ const AllProductsPage = () => {
         />
       </div>
       <div className={classes.productsSection}>
-        {data.map((product) => (
-          <MediumProductCard
-            key={product.created_at}
-            productInfo={product}
-            displayReview={true}
-          />
-        ))}
+        {!filteredArray
+          ? data.map((product) => (
+              <MediumProductCard
+                key={product.created_at}
+                productInfo={product}
+                displayReview={true}
+              />
+            ))
+          : filteredArray.map((product) => (
+              <MediumProductCard
+                key={product.created_at}
+                productInfo={product}
+                displayReview={true}
+              />
+            ))}
       </div>
       <BottomSheet
         open={open}
