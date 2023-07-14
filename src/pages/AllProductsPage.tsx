@@ -54,7 +54,11 @@ const AllProductsPage = () => {
       </div>
       <div className={classes.productsSection}>
         {data.map((product) => (
-          <MediumProductCard productInfo={product} displayReview={true} />
+          <MediumProductCard
+            key={product.created_at}
+            productInfo={product}
+            displayReview={true}
+          />
         ))}
       </div>
       <BottomSheet
