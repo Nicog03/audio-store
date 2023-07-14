@@ -11,9 +11,18 @@ import "react-spring-bottom-sheet-updated/dist/style.css";
 
 const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
+interface FilterType {
+  category: string;
+  sortBy: string;
+  minPrice: string;
+  maxPrice: string;
+}
+
 const AllProductsPage = () => {
   const [data, setData] = useState<ProductType[]>([]);
   const [open, setOpen] = useState(false);
+  const [filterData, setFilterData] = useState<FilterType | null>(null);
+  const [filterQnt, setFilterQnt] = useState(0);
 
   useEffect(() => {
     axios
@@ -38,7 +47,10 @@ const AllProductsPage = () => {
           <p>Featured products</p>
           <h2>See all products</h2>
         </div>
-        <FilterButton clickAction={openBottomSheetHandler} />
+        <FilterButton
+          clickAction={openBottomSheetHandler}
+          filtersApplied={filterQnt}
+        />
       </div>
       <div className={classes.productsSection}>
         {data.map((product) => (
@@ -50,7 +62,12 @@ const AllProductsPage = () => {
         onDismiss={() => setOpen(false)}
         snapPoints={({ minHeight }) => minHeight}
       >
-        <Filter XClickAction={closeBottomSheetHandler} />
+        <Filter
+          XClickAction={closeBottomSheetHandler}
+          changeData={setFilterData}
+          setFilterQnt={setFilterQnt}
+          setOpen={setOpen}
+        />
       </BottomSheet>
     </div>
   );
