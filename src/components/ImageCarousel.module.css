@@ -1,0 +1,18 @@
+.div {
+  width: 17.75rem;
+  height: 24.5rem;
+  background-color: var(--color-light-grey-1);
+  border-radius: 0.625rem;
+}
+
+.one {
+  background-image: url(/src/assets/png/headset-large.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.two {
+  background-image: url(/src/assets/png/headset-product.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
