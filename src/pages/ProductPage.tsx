@@ -1,5 +1,5 @@
 import SearchHeader from "../components/SearchHeader";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useParams, useRouteLoaderData } from "react-router-dom";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
 import { ProductType } from "./HomePage";
 import Button from "../components/Button";
@@ -15,7 +15,7 @@ interface PropType {
 }
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
-  const data = useRouteLoaderData("product-page");
+  const data = useRouteLoaderData("product-page") as ProductType[];
 
   return (
     <>
@@ -39,7 +39,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
           <h3>Another Product</h3>
           <Link to="/all-products">See All</Link>
         </div>
-        <ProductCarouselMedium products={data as ProductType[]} />
+        <ProductCarouselMedium products={data} />
       </section>
       <div className={classes.buttonDiv}>
         <Button textContent="Add To Cart" />
@@ -51,8 +51,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
 export async function loader(): Promise<ProductType[]> {
   try {
     const response = await fetch(ApiURL);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return await response.json();
+    return (await response.json()) as ProductType[];
   } catch (error) {
     console.error(error);
     throw error;
