@@ -1,14 +1,18 @@
 import classes from "./TabBarDescription.module.css";
 import { NavLink } from "react-router-dom";
 
-const TabBarDescription = () => {
+interface PropType {
+  productId: number;
+}
+
+const TabBarDescription: React.FC<PropType> = ({ productId }) => {
   return (
     <div className={classes.container}>
       <NavLink
         className={({ isActive }) =>
           isActive ? `${classes.active} ${classes.link}` : ``
         }
-        to="/product/:id/overview"
+        to={`/product/${productId}/overview`}
       >
         Overview
       </NavLink>
@@ -16,7 +20,7 @@ const TabBarDescription = () => {
         className={({ isActive }) =>
           isActive ? `${classes.active} ${classes.link}` : ``
         }
-        to="/product/:id/features"
+        to={`/product/${productId}/features`}
       >
         Features
       </NavLink>
