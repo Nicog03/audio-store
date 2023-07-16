@@ -1,8 +1,6 @@
 import SearchHeader from "../components/SearchHeader";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { ProductType } from "./HomePage";
 import Button from "../components/Button";
 import TabBarDescription from "../components/TabBarDescription";
@@ -10,22 +8,14 @@ import ImageCarousel from "../components/ImageCarousel";
 import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
 import Features from "../components/Features";
-
-const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
+import { ApiURL } from "../api-url";
 
 interface PropType {
   mode: "overview" | "features";
 }
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
-  const [data, setData] = useState<ProductType[]>([]);
-
-  useEffect(() => {
-    axios
-      .get<ProductType[]>(baseURL)
-      .then((response) => setData(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+  const data = useLoaderData();
 
   return (
     <>
@@ -49,7 +39,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
           <h3>Another Product</h3>
           <Link to="/all-products">See All</Link>
         </div>
-        <ProductCarouselMedium products={data} />
+        <ProductCarouselMedium products={data as ProductType[]} />
       </section>
       <div className={classes.buttonDiv}>
         <Button textContent="Add To Cart" />
@@ -57,5 +47,16 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
     </>
   );
 };
+
+export async function loader(): Promise<ProductType[]> {
+  try {
+    const response = await fetch(ApiURL);
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
 
 export default ProductPage;
