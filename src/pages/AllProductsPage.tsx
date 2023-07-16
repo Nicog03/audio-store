@@ -8,8 +8,7 @@ import { ProductType } from "./HomePage";
 import { BottomSheet } from "react-spring-bottom-sheet-updated";
 import Filter from "../components/Filter";
 import "react-spring-bottom-sheet-updated/dist/style.css";
-
-const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
+import { ApiURL } from "../api-url";
 
 interface FilterType {
   category: string;
@@ -26,7 +25,7 @@ const AllProductsPage = () => {
 
   useEffect(() => {
     axios
-      .get<ProductType[]>(baseURL)
+      .get<ProductType[]>(ApiURL)
       .then((response) => setData(response.data))
       .catch((error) => console.error(error));
   }, []);
