@@ -5,6 +5,7 @@
   background-color: var(--color-white);
   border-radius: 0.938rem;
   gap: 1.25rem;
+  color: black;
 }
 
 .info h3 {
