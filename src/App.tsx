@@ -2,7 +2,7 @@ import HomePage from "./pages/HomePage.tsx";
 import SignInPage from "./pages/SignInPage.tsx";
 import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ProductPage from "./pages/ProductPage.tsx";
+import ProductPage, { loader } from "./pages/ProductPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +29,19 @@ const router = createBrowserRouter([
     element: <SignInPage mode={"signup"} />,
   },
   {
-    path: "/product/:id/overview",
-    element: <ProductPage mode="overview" />,
-  },
-  {
-    path: "/product/:id/features",
-    element: <ProductPage mode="features" />,
+    path: "/product",
+    id: "product-page",
+    loader: loader,
+    children: [
+      {
+        path: ":id/overview",
+        element: <ProductPage mode="overview" />,
+      },
+      {
+        path: ":id/features",
+        element: <ProductPage mode="features" />,
+      },
+    ],
   },
 ]);
 
