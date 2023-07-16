@@ -10,8 +10,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
 import SearchHeader from "../components/SearchHeader";
-
-const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
+import { ApiURL } from "../api-url";
 
 interface ReviewType {
   user: string;
@@ -29,6 +28,7 @@ export interface ProductType {
   category: string;
   created_at: string;
   reviews: ReviewType[];
+  id: number;
 }
 
 interface PropTypes {
@@ -46,7 +46,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
 
   useEffect(() => {
     axios
-      .get<ProductType[]>(baseURL)
+      .get<ProductType[]>(ApiURL)
       .then((response) => setData(response.data))
       .catch((error) => console.error(error));
   }, []);
