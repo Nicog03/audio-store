@@ -25,18 +25,22 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
     <>
       <SearchHeader />
       <div className={classes.productHeadingContainer}>
-        <p>USD 350</p>
-        <h1>TMA-2 HD WIRELESS</h1>
+        <p>USD {productData?.price.replace("$", "")}</p>
+        <h1>{productData?.name}</h1>
       </div>
       <div className={classes.tabDiv}>
-        <TabBarDescription />
+        <TabBarDescription productId={productData!.id} />
       </div>
       <div className={classes.imageCarouselDiv}>
-        {mode === "overview" ? <ImageCarousel /> : <Features />}
+        {mode === "overview" ? (
+          <ImageCarousel />
+        ) : (
+          <Features description={productData!.description} />
+        )}
       </div>
       <section className={classes.reviewsSection}>
-        <h2>Reviews (3)</h2>
-        <ReviewList />
+        <h2>Reviews ({productData?.reviews.length})</h2>
+        <ReviewList reviews={productData!.reviews} />
       </section>
       <section className={classes.otherProductsSection}>
         <div className={classes.otherProductsDiv}>
