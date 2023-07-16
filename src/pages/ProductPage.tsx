@@ -12,7 +12,11 @@ import ReviewList from "../components/ReviewList";
 
 const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
-const ProductPage = () => {
+interface PropType {
+  mode: "overview" | "features";
+}
+
+const ProductPage: React.FC<PropType> = ({ mode }) => {
   const [data, setData] = useState<ProductType[]>([]);
 
   useEffect(() => {
