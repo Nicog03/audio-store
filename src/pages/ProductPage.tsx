@@ -17,6 +17,10 @@ interface PropType {
 const ProductPage: React.FC<PropType> = ({ mode }) => {
   const data = useRouteLoaderData("product-page") as ProductType[];
 
+  const { id } = useParams();
+
+  const productData = data.find((product) => product.id === +id!);
+
   return (
     <>
       <SearchHeader />
