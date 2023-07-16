@@ -2,24 +2,39 @@ import HomePage from "./pages/HomePage.tsx";
 import SignInPage from "./pages/SignInPage.tsx";
 import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ProductPage, { loader } from "./pages/ProductPage.tsx";
+import ProductPage from "./pages/ProductPage.tsx";
+import { loader as productLoader } from "./loader-function.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
+    loader: productLoader,
+    id: "root-path",
     children: [
       {
-        path: ":category",
+        path: "/:category",
         element: <HomePage />,
+      },
+      {
+        path: "/search",
+        element: <HomePage mode={"search"} />,
+      },
+      { path: "/all-products", element: <AllProductsPage /> },
+      {
+        path: "/product",
+        children: [
+          {
+            path: ":id/overview",
+            element: <ProductPage mode="overview" />,
+          },
+          {
+            path: ":id/features",
+            element: <ProductPage mode="features" />,
+          },
+        ],
       },
     ],
   },
-  {
-    path: "/search",
-    element: <HomePage mode={"search"} />,
-  },
-  { path: "/all-products", element: <AllProductsPage /> },
   {
     path: "/signin",
     element: <SignInPage mode={"signin"} />,
@@ -27,21 +42,6 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignInPage mode={"signup"} />,
-  },
-  {
-    path: "/product",
-    id: "product-page",
-    loader: loader,
-    children: [
-      {
-        path: ":id/overview",
-        element: <ProductPage mode="overview" />,
-      },
-      {
-        path: ":id/features",
-        element: <ProductPage mode="features" />,
-      },
-    ],
   },
 ]);
 
