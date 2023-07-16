@@ -4,13 +4,16 @@ import ProductCarouselLarge from "../components/ProductCarouselLarge";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
 import Logo from "../components/Logo";
 import { Search } from "react-feather";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useRouteLoaderData,
+} from "react-router-dom";
 import classes from "./HomePage.module.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
 import SearchHeader from "../components/SearchHeader";
-import { ApiURL } from "../api-url";
 
 export interface ReviewType {
   user: string;
@@ -36,20 +39,14 @@ interface PropTypes {
 }
 
 const HomePage: React.FC<PropTypes> = ({ mode }) => {
-  const [data, setData] = useState<ProductType[]>([]);
+  const data = useRouteLoaderData("root-path") as ProductType[];
+
   const [filteredArray, setFilteredArray] = useState<ProductType[]>([]);
 
   const { category } = useParams();
   const navigate = useNavigate();
 
   const searchMode = mode === "search";
-
-  useEffect(() => {
-    axios
-      .get<ProductType[]>(ApiURL)
-      .then((response) => setData(response.data))
-      .catch((error) => console.error(error));
-  }, []);
 
   const categoryArray: ProductType[] = data.filter(
     (item) => item.category.toLowerCase() === category
