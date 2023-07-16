@@ -1,5 +1,5 @@
 import SearchHeader from "../components/SearchHeader";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useRouteLoaderData } from "react-router-dom";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
 import { ProductType } from "./HomePage";
 import Button from "../components/Button";
@@ -15,7 +15,7 @@ interface PropType {
 }
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
-  const data = useLoaderData();
+  const data = useRouteLoaderData("product-page");
 
   return (
     <>
