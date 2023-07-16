@@ -12,7 +12,7 @@ import ProductArrayCompact from "../components/ProductArrayCompact";
 import SearchHeader from "../components/SearchHeader";
 import { ApiURL } from "../api-url";
 
-interface ReviewType {
+export interface ReviewType {
   user: string;
   description: string;
   rating: number;
