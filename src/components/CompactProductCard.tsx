@@ -4,6 +4,7 @@ import { MoreVertical } from "react-feather";
 
 import StarIcon from "./StarIcon";
 import { ProductType } from "../pages/HomePage";
+import { Link } from "react-router-dom";
 
 interface PropType {
   productInfo: ProductType;
@@ -11,7 +12,10 @@ interface PropType {
 
 const CompactProductCard: React.FC<PropType> = ({ productInfo }) => {
   return (
-    <div className={classes.container}>
+    <Link
+      to={`/product/${productInfo.id}/overview`}
+      className={classes.container}
+    >
       <div className={classes.imageContainer}>
         <img src="src/assets/png/headset.png" alt="headset image" />
       </div>
@@ -31,7 +35,7 @@ const CompactProductCard: React.FC<PropType> = ({ productInfo }) => {
           <MoreVertical className={classes.optionsIcon} />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
