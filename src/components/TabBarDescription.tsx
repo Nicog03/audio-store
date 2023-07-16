@@ -8,7 +8,7 @@ const TabBarDescription = () => {
         className={({ isActive }) =>
           isActive ? `${classes.active} ${classes.link}` : ``
         }
-        to="/product"
+        to="/product/:id/overview"
       >
         Overview
       </NavLink>
@@ -16,7 +16,7 @@ const TabBarDescription = () => {
         className={({ isActive }) =>
           isActive ? `${classes.active} ${classes.link}` : ``
         }
-        to="/product"
+        to="/product/:id/features"
       >
         Features
       </NavLink>
