@@ -1,22 +1,24 @@
 import classes from "./Review.module.css";
 import ProfileIcon from "./ProfileIcon";
 import Rating from "./Rating";
+import { ReviewType } from "../pages/HomePage";
 
-const Review = () => {
+interface PropType {
+  review: ReviewType;
+}
+
+const Review: React.FC<PropType> = ({ review }) => {
   return (
     <div className={classes.container}>
       <ProfileIcon size="small" />
       <div className={classes.info}>
         <div className={classes.infoUpper}>
-          <p>Madelina</p>
+          <p>{review.user}</p>
           <p className={classes.reviewDate}>1 Month ago</p>
         </div>
-        <Rating reviewValue={3} />
+        <Rating reviewValue={review.rating} />
       </div>
-      <p className={classes.reviewText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
+      <p className={classes.reviewText}>{review.description}</p>
     </div>
   );
 };
