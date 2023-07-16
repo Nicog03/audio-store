@@ -13,7 +13,10 @@ const LargeProductCard: React.FC<propType> = ({ productInfo }) => {
       <div className={classes.container}>
         <div className={classes.leftSide}>
           <h2>{productInfo.name}</h2>
-          <Link className={classes.link} to="/">
+          <Link
+            className={classes.link}
+            to={`/product/${productInfo.id}/overview`}
+          >
             Shop now <ArrowRight />
           </Link>
         </div>
