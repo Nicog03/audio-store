@@ -42,7 +42,7 @@ const CategoryList: React.FC<propTypes> = ({
                       ? `${classes.active} ${classes.link}`
                       : classes.link
                   }
-                  to={category.toLowerCase()}
+                  to={`/${category.toLowerCase()}`}
                 >
                   {category}
                 </NavLink>
