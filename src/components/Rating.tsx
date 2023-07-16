@@ -2,7 +2,7 @@ import classes from "./Rating.module.css";
 import StarIcon from "./StarIcon";
 
 interface PropType {
-  reviewValue: 0 | 1 | 2 | 3 | 4 | 5;
+  reviewValue: number;
 }
 
 const Rating: React.FC<PropType> = ({ reviewValue }) => {
