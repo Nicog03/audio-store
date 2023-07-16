@@ -1,6 +1,7 @@
 import classes from "./MediumProductCard.module.css";
 import { ProductType } from "../pages/HomePage";
 import StarIcon from "./StarIcon";
+import image from "../assets/png/headset.png";
 
 interface PropType {
   productInfo: ProductType;
@@ -14,7 +15,7 @@ const MediumProductCard: React.FC<PropType> = ({
   return (
     <>
       <div className={classes.cardContainer}>
-        <img src="src/assets/png/headset.png" alt="image of a headphone" />
+        <img src={image} alt="image of a headphone" />
         <div className={classes.info}>
           <h3>{productInfo.name}</h3>
           <p>USD {productInfo.price}</p>
