@@ -2,6 +2,7 @@ import classes from "./MediumProductCard.module.css";
 import { ProductType } from "../pages/HomePage";
 import StarIcon from "./StarIcon";
 import image from "../assets/png/headset.png";
+import { Link } from "react-router-dom";
 
 interface PropType {
   productInfo: ProductType;
@@ -14,7 +15,10 @@ const MediumProductCard: React.FC<PropType> = ({
 }) => {
   return (
     <>
-      <div className={classes.cardContainer}>
+      <Link
+        to={`/product/${productInfo.id}/overview`}
+        className={classes.cardContainer}
+      >
         <img src={image} alt="image of a headphone" />
         <div className={classes.info}>
           <h3>{productInfo.name}</h3>
@@ -29,7 +33,7 @@ const MediumProductCard: React.FC<PropType> = ({
             <p>{productInfo.reviews.length} Reviews</p>
           </div>
         )}
-      </div>
+      </Link>
     </>
   );
 };
