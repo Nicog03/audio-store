@@ -8,14 +8,13 @@ import ImageCarousel from "../components/ImageCarousel";
 import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
 import Features from "../components/Features";
-import { ApiURL } from "../api-url";
 
 interface PropType {
   mode: "overview" | "features";
 }
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
-  const data = useRouteLoaderData("product-page") as ProductType[];
+  const data = useRouteLoaderData("root-path") as ProductType[];
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
   const { id } = useParams();
@@ -56,15 +55,5 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
     </>
   );
 };
-
-export async function loader(): Promise<ProductType[]> {
-  try {
-    const response = await fetch(ApiURL);
-    return (await response.json()) as ProductType[];
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
 
 export default ProductPage;
