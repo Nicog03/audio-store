@@ -9,6 +9,7 @@ import TabBarDescription from "../components/TabBarDescription";
 import ImageCarousel from "../components/ImageCarousel";
 import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
+import Features from "../components/Features";
 
 const baseURL = "https://run.mocky.io/v3/c4ea8253-f0b8-4c1f-ba83-4d30d8049cc9";
 
@@ -37,7 +38,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
         <TabBarDescription />
       </div>
       <div className={classes.imageCarouselDiv}>
-        <ImageCarousel />
+        {mode === "overview" ? <ImageCarousel /> : <Features />}
       </div>
       <section className={classes.reviewsSection}>
         <h2>Reviews (3)</h2>
