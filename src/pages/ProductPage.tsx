@@ -16,6 +16,7 @@ interface PropType {
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
   const data = useRouteLoaderData("product-page") as ProductType[];
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
   const { id } = useParams();
 
