@@ -3,6 +3,10 @@
   gap: 2.125rem;
 }
 
+.container a {
+  color: black;
+}
+
 .linkContainer {
   display: flex;
   flex-direction: column;
