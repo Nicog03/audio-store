@@ -2,13 +2,12 @@ import SearchHeader from "../components/SearchHeader";
 import FilterButton from "../components/FilterButton";
 import classes from "./AllProductsPage.module.css";
 import MediumProductCard from "../components/MediumProducCard";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ProductType } from "./HomePage";
 import { BottomSheet } from "react-spring-bottom-sheet-updated";
 import Filter from "../components/Filter";
 import "react-spring-bottom-sheet-updated/dist/style.css";
-import { ApiURL } from "../api-url";
+import { useRouteLoaderData } from "react-router-dom";
 
 interface FilterType {
   category: string;
@@ -18,17 +17,11 @@ interface FilterType {
 }
 
 const AllProductsPage = () => {
-  const [data, setData] = useState<ProductType[]>([]);
+  const data = useRouteLoaderData("root-path") as ProductType[];
+
   const [open, setOpen] = useState(false);
   const [filterData, setFilterData] = useState<FilterType | null>(null);
   const [filterQnt, setFilterQnt] = useState(0);
-
-  useEffect(() => {
-    axios
-      .get<ProductType[]>(ApiURL)
-      .then((response) => setData(response.data))
-      .catch((error) => console.error(error));
-  }, []);
 
   const openBottomSheetHandler = () => {
     setOpen(true);
