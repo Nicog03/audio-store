@@ -29,7 +29,6 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
     context.find((product) => product.id === productData!.id)
       ? (productData!.quantity! += 1)
       : (productData!.quantity = 1);
-
     productData!.quantity === 1
       ? setContext((prevArray) => [...prevArray, productData!])
       : null;
@@ -45,24 +44,29 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
       <div className={classes.tabDiv}>
         <TabBarDescription productId={productData!.id} />
       </div>
-      <div className={classes.imageCarouselDiv}>
-        {mode === "overview" ? (
-          <ImageCarousel />
-        ) : (
+      {mode === "overview" ? (
+        <>
+          <div className={classes.tabContent}>
+            <ImageCarousel />
+          </div>
+          <section className={classes.reviewsSection}>
+            <h2>Reviews ({productData?.reviews.length})</h2>
+            <ReviewList reviews={productData!.reviews} />
+          </section>
+          <section className={classes.otherProductsSection}>
+            <div className={classes.otherProductsDiv}>
+              <h3>Another Product</h3>
+              <Link to="/all-products">See All</Link>
+            </div>
+            <ProductCarouselMedium products={data} />
+          </section>
+        </>
+      ) : (
+        <div className={classes.tabContent}>
           <Features description={productData!.description} />
-        )}
-      </div>
-      <section className={classes.reviewsSection}>
-        <h2>Reviews ({productData?.reviews.length})</h2>
-        <ReviewList reviews={productData!.reviews} />
-      </section>
-      <section className={classes.otherProductsSection}>
-        <div className={classes.otherProductsDiv}>
-          <h3>Another Product</h3>
-          <Link to="/all-products">See All</Link>
         </div>
-        <ProductCarouselMedium products={data} />
-      </section>
+      )}
+
       <div className={classes.buttonDiv}>
         <Button textContent="Add To Cart" onClick={pushProductToCartHandler} />
       </div>
