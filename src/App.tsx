@@ -4,6 +4,7 @@ import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductPage from "./pages/ProductPage.tsx";
 import { loader as productLoader } from "./loader-function.tsx";
+import ShoppingCartPage from "./pages/ShoppingCartPage.tsx";
 import { createContext, SetStateAction, useState } from "react";
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             element: <ProductPage mode="features" />,
           },
         ],
+      },
+      {
+        path: "/shopping-cart",
+        element: <ShoppingCartPage />,
       },
     ],
   },
