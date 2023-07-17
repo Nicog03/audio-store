@@ -15,6 +15,12 @@
   height: 100%;
 }
 
+.noItemMessage {
+  color: var(--color-dark-grey);
+  font-weight: bold;
+  align-self: center;
+}
+
 .upperSection {
   display: flex;
   flex-direction: column;
