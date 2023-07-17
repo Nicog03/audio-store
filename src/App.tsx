@@ -1,9 +1,10 @@
-import HomePage from "./pages/HomePage.tsx";
+import HomePage, { ProductType } from "./pages/HomePage.tsx";
 import SignInPage from "./pages/SignInPage.tsx";
 import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductPage from "./pages/ProductPage.tsx";
 import { loader as productLoader } from "./loader-function.tsx";
+import { createContext, SetStateAction, useState } from "react";
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,7 @@ const router = createBrowserRouter([
     loader: productLoader,
     id: "root-path",
     children: [
+      { index: true, element: <HomePage /> },
       {
         path: "/:category",
         element: <HomePage />,
@@ -45,8 +47,20 @@ const router = createBrowserRouter([
   },
 ]);
 
+interface ContextType {
+  context: ProductType[];
+  setContext: React.Dispatch<SetStateAction<ProductType[]>>;
+}
+
+export const Context = createContext<ContextType>();
+
 function App() {
-  return <RouterProvider router={router} />;
+  const [context, setContext] = useState<ProductType[]>([]);
+  return (
+    <Context.Provider value={{ context, setContext }}>
+      <RouterProvider router={router} />
+    </Context.Provider>
+  );
 }
 
 export default App;
