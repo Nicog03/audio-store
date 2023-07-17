@@ -20,7 +20,7 @@
   padding-block-end: 1.5rem;
 }
 
-.imageCarouselDiv {
+.tabContent {
   margin-inline-start: 1.25rem;
 }
 
@@ -68,4 +68,8 @@
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.buttonDiv button {
+  cursor: pointer;
 }
