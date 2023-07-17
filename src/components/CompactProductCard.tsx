@@ -37,6 +37,12 @@ const CompactProductCard: React.FC<PropType> = ({
     updatePage();
   };
 
+  const removeProductFromCartHandler = () => {
+    setContext((current) =>
+      current.filter((product) => product.id != productInfo.id)
+    );
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.imageContainer}>
@@ -70,7 +76,12 @@ const CompactProductCard: React.FC<PropType> = ({
                 <Plus height={"1.25rem"} width={"1.25rem"} />
               </button>
             </div>
-            <Trash2 height={"1.25rem"} width={"1.25rem"} />
+            <button
+              className={classes.trashButton}
+              onClick={removeProductFromCartHandler}
+            >
+              <Trash2 height={"1.25rem"} width={"1.25rem"} />
+            </button>
           </div>
         )}
       </div>
