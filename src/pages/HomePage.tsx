@@ -75,7 +75,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
       className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
     >
       {searchMode ? (
-        <SearchHeader />
+        <SearchHeader mode="search" />
       ) : (
         <header className={classes.header}>
           <img src="src/assets/svg/menu.svg" alt="" />
