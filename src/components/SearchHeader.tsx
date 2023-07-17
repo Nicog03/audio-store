@@ -12,7 +12,7 @@ interface PropType {
 }
 
 const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
-  const { context } = useContext(Context);
+  const { context, setContext } = useContext(Context);
 
   let itemsQnt = 0;
 
@@ -20,6 +20,10 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
 
   const searchMode = mode === "search";
   const shopMode = mode === "shop";
+
+  const clearCartHandler = () => {
+    setContext([]);
+  };
 
   return (
     <header className={classes.header}>
@@ -35,7 +39,7 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
           <ShoppingCart />
         </Link>
       ) : (
-        <button className={classes.trashButton}>
+        <button onClick={clearCartHandler} className={classes.trashButton}>
           <Trash2 />
         </button>
       )}
