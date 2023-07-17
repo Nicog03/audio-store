@@ -118,3 +118,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.errorDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(212, 30, 30, 0.5);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: rgb(255, 101, 101) solid 1px;
+}
