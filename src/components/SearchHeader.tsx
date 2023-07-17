@@ -12,7 +12,9 @@ const SearchHeader = () => {
         <ChevronLeft />
       </Link>
       <h1 className={classes.heading}>Search</h1>
-      <ShoppingCart />
+      <Link to="/shopping-cart">
+        <ShoppingCart />
+      </Link>
     </header>
   );
 };
