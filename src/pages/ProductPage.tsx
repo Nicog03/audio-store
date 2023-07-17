@@ -9,7 +9,7 @@ import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
 import Features from "../components/Features";
 import { Context } from "../App";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 interface PropType {
   mode: "overview" | "features";
@@ -18,6 +18,12 @@ interface PropType {
 const ProductPage: React.FC<PropType> = ({ mode }) => {
   const data = useRouteLoaderData("root-path") as ProductType[];
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
+  const [value, setValue] = useState(0);
+
+  const reloadPage = () => {
+    setValue((value) => value + 1);
+  };
 
   const { id } = useParams();
 
@@ -31,7 +37,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
       : (productData!.quantity = 1);
     productData!.quantity === 1
       ? setContext((prevArray) => [...prevArray, productData!])
-      : null;
+      : reloadPage();
   };
 
   return (
