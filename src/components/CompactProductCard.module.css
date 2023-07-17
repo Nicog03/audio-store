@@ -8,8 +8,8 @@
 .imageContainer {
   background-color: var(--color-light-grey-1);
   border-radius: 0.625rem;
-  height: 4.688rem;
-  width: 4.688rem;
+  height: 5.438rem;
+  width: 5.438rem;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -60,4 +60,28 @@
 .optionsIcon {
   height: 1.25rem;
   color: var(--color-dark-grey);
+}
+
+.quantityContainer button {
+  cursor: pointer;
+}
+
+.shoppingBottomContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shoppingBottomContainer button {
+  background-color: transparent;
+  display: flex;
+  border: var(--color-grey) 1px solid;
+  border-radius: 0.625rem;
+  padding: 0.313rem;
+}
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.563rem;
 }
