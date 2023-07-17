@@ -1,7 +1,7 @@
 import { ChevronLeft, Trash2 } from "react-feather";
 import { ShoppingCart } from "react-feather";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import classes from "./SearchHeader.module.css";
 import { useContext } from "react";
@@ -14,6 +14,8 @@ interface PropType {
 const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
   const { context, setContext } = useContext(Context);
 
+  const navigate = useNavigate();
+
   let itemsQnt = 0;
 
   context.map((product) => (itemsQnt += product.quantity!));
@@ -25,9 +27,13 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
     setContext([]);
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <header className={classes.header}>
-      <Link to="/headphones" className={classes.link}>
+      <Link to={""} onClick={goBack} className={classes.link}>
         <ChevronLeft />
       </Link>
       {searchMode && <h1 className={classes.heading}>Search</h1>}
