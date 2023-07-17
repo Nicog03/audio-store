@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  max-height: fit-content;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  margin-bottom: 8rem;
+  height: 100%;
+}
+
+.upperSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2.063rem;
+}
+
+.items {
+  flex: 1;
+}
+
+.bottomSection {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.313rem;
+  position: fixed;
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.totalSection {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalSection h3 {
+  font-size: 0.75rem;
+  color: var(--color-dark-grey);
+}
+
+.totalSection p {
+  font-weight: bold;
+}
