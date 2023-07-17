@@ -8,6 +8,8 @@ import ImageCarousel from "../components/ImageCarousel";
 import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
 import Features from "../components/Features";
+import { Context } from "../App";
+import { ContextType, useContext } from "react";
 
 interface PropType {
   mode: "overview" | "features";
@@ -20,6 +22,20 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
   const { id } = useParams();
 
   const productData = data.find((product) => product.id === +id!);
+
+  const { context, setContext } = useContext(Context);
+
+  const pushProductToCartHandler = () => {
+    context.find((product) => product.id === productData!.id)
+      ? (productData!.quantity! += 1)
+      : (productData!.quantity = 1);
+
+    productData!.quantity === 1
+      ? setContext((prevArray) => [...prevArray, productData!])
+      : null;
+  };
+
+  console.log(context);
 
   return (
     <>
@@ -50,7 +66,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
         <ProductCarouselMedium products={data} />
       </section>
       <div className={classes.buttonDiv}>
-        <Button textContent="Add To Cart" />
+        <Button textContent="Add To Cart" onClick={pushProductToCartHandler} />
       </div>
     </>
   );
