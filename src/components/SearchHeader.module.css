@@ -10,8 +10,27 @@
 
 .link {
   display: flex;
+  color: black;
 }
 
 .heading {
   font-size: 1rem;
+}
+
+.shoppingLink {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  color: black;
+}
+
+.shoppingLink p {
+  color: white;
+  background-color: var(--color-green);
+  height: 1.2rem;
+  width: 1.2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  border-radius: 50%;
+  line-height: 1.2rem;
 }
