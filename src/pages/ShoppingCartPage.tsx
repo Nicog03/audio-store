@@ -36,7 +36,7 @@ const ShoppingCartPage = () => {
           <div className={classes.bottomSection}>
             <section className={classes.totalSection}>
               <h3>Total {totalItems} Items</h3>
-              <p>USD {totalPrice}</p>
+              <p>USD {totalPrice.toFixed(2)}</p>
             </section>
             <Button textContent="Proceed to Checkout" />
           </div>
