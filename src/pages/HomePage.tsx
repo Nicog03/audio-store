@@ -43,7 +43,7 @@ interface PropTypes {
 const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const data = useRouteLoaderData("root-path") as ProductType[];
 
-  const [filteredArray, setFilteredArray] = useState<ProductType[]>([]);
+  const [filteredArray, setFilteredArray] = useState<ProductType[]>(data);
 
   const { category } = useParams();
   const navigate = useNavigate();
