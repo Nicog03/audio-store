@@ -10,7 +10,7 @@ const ReviewList: React.FC<PropTypes> = ({ reviews }) => {
   return (
     <div className={classes.container}>
       {reviews.map((review) => (
-        <Review review={review} />
+        <Review key={review.id} review={review} />
       ))}
     </div>
   );
