@@ -10,31 +10,28 @@ import { Context } from "../App";
 interface PropType {
   productInfo: ProductType;
   isOnShoppingCart?: boolean;
+  updateStore?: () => void;
 }
 
 const CompactProductCard: React.FC<PropType> = ({
   productInfo,
   isOnShoppingCart = false,
+  updateStore,
 }) => {
   const { setContext } = useContext(Context);
-  const [value, setValue] = useState(0);
 
   if (productInfo.quantity === 0) {
     setContext((current) => current.filter((product) => product.quantity != 0));
   }
 
-  const updatePage = () => {
-    setValue((value) => value + 1);
-  };
-
   const reduceQuantityHandler = () => {
     productInfo.quantity!--;
-    updatePage();
+    updateStore!();
   };
 
   const increaseQuantityHandler = () => {
     productInfo.quantity!++;
-    updatePage();
+    updateStore!();
   };
 
   const removeProductFromCartHandler = () => {
