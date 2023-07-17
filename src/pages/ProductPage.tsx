@@ -9,7 +9,7 @@ import classes from "./ProductPage.module.css";
 import ReviewList from "../components/ReviewList";
 import Features from "../components/Features";
 import { Context } from "../App";
-import { ContextType, useContext } from "react";
+import { useContext } from "react";
 
 interface PropType {
   mode: "overview" | "features";
@@ -34,8 +34,6 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
       ? setContext((prevArray) => [...prevArray, productData!])
       : null;
   };
-
-  console.log(context);
 
   return (
     <>
