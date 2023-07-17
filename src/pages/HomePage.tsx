@@ -20,6 +20,7 @@ export interface ReviewType {
   description: string;
   rating: number;
   date: string;
+  id: number;
 }
 
 export interface ProductType {
@@ -32,6 +33,7 @@ export interface ProductType {
   created_at: string;
   reviews: ReviewType[];
   id: number;
+  quantity?: number;
 }
 
 interface PropTypes {
@@ -110,7 +112,10 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
       {searchMode && (
         <section className={classes.popularProductsSection}>
           <h3 className={classes.popularProductsHeader}>Popular products</h3>
-          <ProductArrayCompact products={filteredArray} />
+          <ProductArrayCompact
+            isOnShoppingCart={false}
+            products={filteredArray}
+          />
         </section>
       )}
     </div>
