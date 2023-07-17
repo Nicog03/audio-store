@@ -39,4 +39,5 @@
   display: flex;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
