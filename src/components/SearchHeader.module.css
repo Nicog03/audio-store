@@ -34,3 +34,9 @@
   border-radius: 50%;
   line-height: 1.2rem;
 }
+
+.trashButton {
+  display: flex;
+  background-color: transparent;
+  border: none;
+}
