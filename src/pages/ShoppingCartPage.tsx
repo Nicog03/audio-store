@@ -28,11 +28,16 @@ const ShoppingCartPage = () => {
       <div className={classes.container}>
         <SearchHeader mode="shop" />
         <div className={classes.content}>
-          <ProductArrayCompact
-            updateStore={updatePageHandler}
-            isOnShoppingCart={true}
-            products={context}
-          />
+          {totalItems === 0 ? (
+            <p className={classes.noItemMessage}>No items in the cart yet</p>
+          ) : (
+            <ProductArrayCompact
+              updateStore={updatePageHandler}
+              isOnShoppingCart={true}
+              products={context}
+            />
+          )}
+
           <div className={classes.bottomSection}>
             <section className={classes.totalSection}>
               <h3>Total {totalItems} Items</h3>
