@@ -63,7 +63,9 @@
 }
 
 .quantityContainer button {
-  cursor: pointer;
+  border: var(--color-grey) 1px solid;
+  border-radius: 0.625rem;
+  padding: 0.313rem;
 }
 
 .shoppingBottomContainer {
@@ -73,15 +75,18 @@
 }
 
 .shoppingBottomContainer button {
-  background-color: transparent;
   display: flex;
-  border: var(--color-grey) 1px solid;
-  border-radius: 0.625rem;
-  padding: 0.313rem;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .quantityContainer {
   display: flex;
   align-items: center;
   gap: 1.563rem;
+}
+
+.trashButton {
+  border: none;
+  color: var(--color-dark-grey);
 }
