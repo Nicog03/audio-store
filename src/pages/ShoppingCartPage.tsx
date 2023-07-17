@@ -26,7 +26,7 @@ const ShoppingCartPage = () => {
   return (
     <>
       <div className={classes.container}>
-        <SearchHeader />
+        <SearchHeader mode="shop" />
         <div className={classes.content}>
           <ProductArrayCompact
             updateStore={updatePageHandler}
