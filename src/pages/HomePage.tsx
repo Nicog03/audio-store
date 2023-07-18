@@ -11,9 +11,11 @@ import {
   useRouteLoaderData,
 } from "react-router-dom";
 import classes from "./HomePage.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
 import SearchHeader from "../components/SearchHeader";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export interface ReviewType {
   user: string;
@@ -43,7 +45,10 @@ interface PropTypes {
 const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const data = useRouteLoaderData("root-path") as ProductType[];
 
+  const userName = localStorage.getItem("name")?.replace(/ .*/, "");
+
   const [filteredArray, setFilteredArray] = useState<ProductType[]>(data);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const { category } = useParams();
   const navigate = useNavigate();
@@ -53,6 +58,16 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const categoryArray: ProductType[] = data.filter(
     (item) => item.category.toLowerCase() === category
   );
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLoggedIn(true);
+      } else {
+        setLoggedIn(false);
+      }
+    });
+  }, []);
 
   const changePageModeHandler = () => {
     navigate("/search");
@@ -87,7 +102,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
       <div className={classes.firstSection}>
         {!searchMode && (
           <div className={classes.greetings}>
-            <p>Hi, Andrea</p>
+            <p>Hi, {loggedIn && userName}</p>
             <h3>What are you looking for today?</h3>
           </div>
         )}
