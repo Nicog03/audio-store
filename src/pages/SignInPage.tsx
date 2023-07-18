@@ -4,7 +4,7 @@ import { Mail, Lock, X } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 
-import { auth, googleSignIn } from "../firebase";
+import { auth, facebookSignIn, googleSignIn } from "../firebase";
 
 import {
   createUserWithEmailAndPassword,
@@ -76,6 +76,17 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
       .catch((error) => console.log(error));
   };
 
+  const signInWithFacebook = () => {
+    facebookSignIn()
+      .then((response) => {
+        console.log(response);
+        navigate("/headphones");
+        console.log(response);
+        localStorage.setItem("name", response.user.displayName!);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className={classes.container}>
       <hgroup className={classes.header}>
@@ -133,7 +144,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
               </button>
             </li>
             <li>
-              <button>
+              <button onClick={signInWithFacebook}>
                 <img
                   src="./src/assets/svg/faceboo-logo.svg"
                   alt="facebook logo"
