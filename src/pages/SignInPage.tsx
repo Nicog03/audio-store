@@ -72,6 +72,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
         navigate("/headphones");
         console.log(response);
         localStorage.setItem("name", response.user.displayName!);
+        localStorage.setItem("user-photo", response.user.photoURL!);
       })
       .catch((error) => console.log(error));
   };
