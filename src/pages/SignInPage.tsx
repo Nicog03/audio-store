@@ -49,7 +49,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
         .catch((error: Error) => {
           console.log(error.message);
           setLoading(false);
-          setError(error.message);
+          setError("Incorrect email or password");
         });
     } else {
       createUserWithEmailAndPassword(auth, email, password)
