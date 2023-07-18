@@ -11,11 +11,11 @@ const Rating: React.FC<PropType> = ({ reviewValue }) => {
 
   return (
     <div className={classes.container}>
-      {[...Array<number>(value)].map((key) => (
-        <StarIcon key={key} filled={true} />
+      {[...Array<number>(value)].map(() => (
+        <StarIcon key={Math.random()} filled={true} />
       ))}
-      {[...Array<number>(remaining)].map((key) => (
-        <StarIcon key={key} filled={false} />
+      {[...Array<number>(remaining)].map(() => (
+        <StarIcon key={Math.random()} filled={false} />
       ))}
     </div>
   );
