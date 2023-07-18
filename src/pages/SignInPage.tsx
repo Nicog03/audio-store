@@ -4,7 +4,7 @@ import { Mail, Lock, X } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 
-import auth from "../firebase";
+import { auth, googleSignIn } from "../firebase";
 
 import {
   createUserWithEmailAndPassword,
@@ -63,6 +63,17 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
           setLoading(false);
         });
     }
+  };
+
+  const signInWithGoogle = () => {
+    googleSignIn()
+      .then((response) => {
+        console.log(response);
+        navigate("/headphones");
+        console.log(response);
+        localStorage.setItem("name", response.user.displayName!);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -130,7 +141,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
               </button>
             </li>
             <li>
-              <button>
+              <button onClick={signInWithGoogle}>
                 <img src="./src/assets/svg/google-logo.svg" alt="google logo" />
               </button>
             </li>
