@@ -47,7 +47,6 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
 
   const userName = localStorage.getItem("name")?.replace(/ .*/, "");
 
-  const [filteredArray, setFilteredArray] = useState<ProductType[]>(data);
   const [loggedIn, setLoggedIn] = useState(false);
 
   const { category } = useParams();
@@ -58,6 +57,9 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const categoryArray: ProductType[] = data.filter(
     (item) => item.category.toLowerCase() === category
   );
+
+  const [filteredArray, setFilteredArray] =
+    useState<ProductType[]>(categoryArray);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -70,7 +72,8 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   }, []);
 
   const changePageModeHandler = () => {
-    navigate("/search");
+    navigate(`/${category!}/search`);
+    setFilteredArray(categoryArray);
   };
 
   const filterArrayHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -86,8 +89,11 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   return (
-    <div className={classes.container}>
+    <div
+      className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
+    >
       {searchMode ? <SearchHeader mode="search" /> : <SearchHeader />}
+
       <div className={classes.firstSection}>
         {!searchMode && (
           <div className={classes.greetings}>
@@ -98,7 +104,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
         <TextInput
           type="text"
           icon={<Search />}
-          placeholder="Search headphone"
+          placeholder={`Search ${category!}`}
           focusAction={changePageModeHandler}
           changeAction={filterArrayHandler}
         />
