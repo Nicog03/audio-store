@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+}
+
+.menuButton {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.linksContainer {
+  position: absolute;
+  transform: translateY(10%);
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column;
+  background-color: var(--color-white);
+  padding: 1rem;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  border: var(--color-dark-grey) solid 1px;
+}
+
+.linksContainer a {
+  color: var(--color-black);
+  border: transparent solid 1px;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.linksContainer a:active {
+  border-color: var(--color-dark-grey);
+}
+
+.signOutButton {
+  background-color: rgb(211, 33, 33);
+  border-radius: 0.3rem;
+  border: none;
+  color: white;
+  padding: 0.3rem;
+}
+
+.background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
