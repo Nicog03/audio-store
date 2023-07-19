@@ -4,8 +4,9 @@ import { Minus, Plus, MoreVertical, Trash2 } from "react-feather";
 
 import StarIcon from "./StarIcon";
 import { ProductType } from "../pages/HomePage";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Context } from "../App";
+import productImage from "../assets/png/headset.png";
 
 interface PropType {
   productInfo: ProductType;
@@ -43,7 +44,7 @@ const CompactProductCard: React.FC<PropType> = ({
   return (
     <div className={classes.container}>
       <div className={classes.imageContainer}>
-        <img src="src/assets/png/headset.png" alt="headset image" />
+        <img src={productImage} alt="headset image" />
       </div>
       <div className={classes.rightSide}>
         <div className={classes.productInfoContainer}>
