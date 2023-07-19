@@ -14,7 +14,7 @@ import { auth } from "../firebase";
 import classes from "./SearchHeader.module.css";
 
 interface PropType {
-  mode?: "search" | "default" | "shop";
+  mode?: "search" | "default" | "shop" | "product-page";
 }
 
 const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
@@ -103,7 +103,6 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
             </Link>
             {searchMode && <h1 className={classes.heading}>Search</h1>}
             {shopMode && <h1 className={classes.heading}>Shopping Cart</h1>}
-
             {!shopMode ? (
               <Link className={classes.shoppingLink} to="/shopping-cart">
                 {itemsQnt != 0 && <p>{itemsQnt}</p>}
