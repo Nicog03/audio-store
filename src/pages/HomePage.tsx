@@ -2,8 +2,7 @@ import TextInput from "../components/TextInput";
 import CategoryList from "../components/CategoryList";
 import ProductCarouselLarge from "../components/ProductCarouselLarge";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
-import Logo from "../components/Logo";
-import { Search, LogOut } from "react-feather";
+import { Search } from "react-feather";
 import {
   Link,
   useNavigate,
@@ -15,8 +14,7 @@ import { useState, useEffect } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
 import SearchHeader from "../components/SearchHeader";
 import { auth } from "../firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import blankProfilePic from "../assets/png/blank-profile-picture.png";
+import { onAuthStateChanged } from "firebase/auth";
 
 export interface ReviewType {
   user: string;
@@ -47,11 +45,9 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   const data = useRouteLoaderData("root-path") as ProductType[];
 
   const userName = localStorage.getItem("name")?.replace(/ .*/, "");
-  const userPicture = localStorage.getItem("user-photo");
 
   const [filteredArray, setFilteredArray] = useState<ProductType[]>(data);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [profileOpen, setOpenProfile] = useState(false);
 
   const { category } = useParams();
   const navigate = useNavigate();
@@ -72,14 +68,6 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
     });
   }, []);
 
-  const logOut = () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.clear();
-      })
-      .catch((error) => console.log(error));
-  };
-
   const changePageModeHandler = () => {
     navigate("/search");
   };
@@ -96,46 +84,11 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
     }
   };
 
-  const toggleProfile = () => {
-    setOpenProfile((prev) => !prev);
-  };
-
   return (
     <div
       className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
     >
-      {searchMode ? (
-        <SearchHeader mode="search" />
-      ) : (
-        <header className={classes.header}>
-          <img src="src/assets/svg/menu.svg" alt="" />
-          <Logo />
-          {loggedIn ? (
-            <div className={classes.profileSection}>
-              <button
-                onClick={toggleProfile}
-                className={classes.profile}
-                style={{
-                  backgroundImage: userPicture
-                    ? `url(${userPicture})`
-                    : `url(${blankProfilePic})`,
-                }}
-              ></button>
-              {profileOpen && (
-                <div className={classes.profileOptionsContainer}>
-                  <button onClick={logOut}>
-                    Sign Out <LogOut height={"1rem"} />
-                  </button>
-                </div>
-              )}
-            </div>
-          ) : (
-            <Link to="/signin" className={classes.signInLink}>
-              Sign In
-            </Link>
-          )}
-        </header>
-      )}
+      {searchMode ? <SearchHeader mode="search" /> : <SearchHeader />}
 
       <div className={classes.firstSection}>
         {!searchMode && (
@@ -145,6 +98,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
           </div>
         )}
         <TextInput
+          type="text"
           icon={<Search />}
           placeholder="Search headphone"
           focusAction={changePageModeHandler}
