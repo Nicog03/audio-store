@@ -8,6 +8,7 @@ import { auth, facebookSignIn, googleSignIn } from "../firebase";
 
 import {
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
@@ -31,15 +32,25 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   if (mode === "signup") {
     buttonText = "Sign Up";
+  } else if (mode === "password-reset") {
+    buttonText = "Send password reset email";
   }
 
   const authenticateUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    if (email.trim() === "" || password.trim() === "") {
-      setError("Incorrect email or password");
-      setLoading(false);
-      return;
+    if (resetPasswordMode) {
+      if (email.trim() === "") {
+        setError("Please provide an email");
+        setLoading(false);
+        return;
+      }
+    } else {
+      if (email.trim() === "" || password.trim() === "") {
+        setError("Incorrect email or password");
+        setLoading(false);
+        return;
+      }
     }
 
     if (mode === "signin") {
@@ -53,7 +64,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
           setLoading(false);
           setError("Incorrect email or password");
         });
-    } else {
+    } else if (mode === "signup") {
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCrendentials) => {
           console.log(userCrendentials);
@@ -61,6 +72,19 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
         .catch((error: Error) => {
           error.message.includes("already-in-use")
             ? setError("This email is already being used")
+            : null;
+          setLoading(false);
+        });
+    } else if (mode === "password-reset") {
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+          setLoading(false);
+        })
+        .catch((error: Error) => {
+          error.message.includes("user-not-found")
+            ? setError(
+                "This email is either invalid, or is not associated with an user account."
+              )
             : null;
           setLoading(false);
         });
