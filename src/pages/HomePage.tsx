@@ -26,6 +26,7 @@ export interface ReviewType {
 
 export interface ProductType {
   imageUrl: string;
+
   rating: number;
   price: string;
   name: string;
@@ -85,11 +86,8 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   return (
-    <div
-      className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
-    >
+    <div className={classes.container}>
       {searchMode ? <SearchHeader mode="search" /> : <SearchHeader />}
-
       <div className={classes.firstSection}>
         {!searchMode && (
           <div className={classes.greetings}>
