@@ -7,6 +7,7 @@ interface propTypes {
   placeholder: string;
   focusAction?: React.FocusEventHandler<HTMLElement>;
   changeAction?: React.ChangeEventHandler<HTMLElement>;
+  type: "password" | "text";
 }
 
 const TextInput: React.FC<propTypes> = ({
@@ -14,6 +15,7 @@ const TextInput: React.FC<propTypes> = ({
   placeholder,
   focusAction,
   changeAction,
+  type,
 }) => {
   return (
     <div className={classes.container}>
@@ -22,7 +24,7 @@ const TextInput: React.FC<propTypes> = ({
         id={placeholder}
         className={icon ? classes.withIcon : undefined}
         placeholder=" "
-        type="text"
+        type={type}
         onChange={changeAction}
       />
       <div className={classes.innerContainer}>
