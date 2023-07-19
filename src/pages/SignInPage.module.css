@@ -129,3 +129,20 @@
   border-radius: 0.5rem;
   border: rgb(255, 101, 101) solid 1px;
 }
+
+.resetParagraphDiv {
+  background-color: rgba(0, 0, 0, 0.745);
+  padding: 0.5rem;
+  text-align: start;
+  border-radius: 0.5rem;
+}
+
+.resetMessageSuccessDiv {
+  background-color: var(--color-green);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.resetMessageSuccessDiv a {
+  text-decoration: underline;
+}
