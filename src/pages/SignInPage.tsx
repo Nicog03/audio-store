@@ -12,11 +12,13 @@ import {
 } from "firebase/auth";
 
 interface propTypes {
-  mode: "signin" | "signup";
+  mode: "signin" | "signup" | "password-reset";
 }
 
 const SignInPage: React.FC<propTypes> = ({ mode }) => {
   const signInMode: boolean = mode === "signin";
+  const resetPasswordMode: boolean = mode === "password-reset";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
