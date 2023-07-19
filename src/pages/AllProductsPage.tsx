@@ -198,7 +198,7 @@ const AllProductsPage = () => {
 
   return (
     <div className={classes.container}>
-      <SearchHeader />
+      <SearchHeader mode="product-page" />
       <div className={classes.upperContainer}>
         <div className={classes.headingContainer}>
           <p>Featured products</p>
