@@ -6,7 +6,9 @@ interface propTypes {
   icon?: ReactNode;
   placeholder: string;
   focusAction?: React.FocusEventHandler<HTMLElement>;
-  changeAction?: React.ChangeEventHandler<HTMLElement>;
+  changeAction?:
+    | React.ChangeEventHandler<HTMLElement>
+    | React.ChangeEventHandler<HTMLInputElement>;
   type: "password" | "text";
 }
 
