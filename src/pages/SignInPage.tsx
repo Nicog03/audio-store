@@ -82,6 +82,8 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
       sendPasswordResetEmail(auth, email)
         .then(() => {
           setLoading(false);
+          setError("");
+          setResetMessageSent(true);
         })
         .catch((error: Error) => {
           error.message.includes("user-not-found")
