@@ -45,3 +45,50 @@
   border: none;
   cursor: pointer;
 }
+
+.profile {
+  height: 35px;
+  width: 35px;
+  background-size: cover;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.profile:focus-visible {
+  outline-color: var(--color-green);
+}
+
+.profileSection {
+  position: relative;
+}
+
+.signInLink {
+  padding: 0.5rem;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+}
+
+.profileSection {
+  display: flex;
+}
+
+.profileOptionsContainer {
+  white-space: nowrap;
+  position: absolute;
+  background-color: var(--color-light-grey-1);
+  padding: 0.5rem;
+  border: var(--color-black) solid 1px;
+  border-radius: 0.5rem;
+  right: 0;
+  bottom: -120%;
+}
+
+.profileOptionsContainer button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
