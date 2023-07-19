@@ -42,7 +42,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
 
   return (
     <>
-      <SearchHeader />
+      <SearchHeader mode="product-page" />
       <div className={classes.productHeadingContainer}>
         <p>USD {productData?.price.replace("$", "")}</p>
         <h1>{productData?.name}</h1>
