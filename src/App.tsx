@@ -50,6 +50,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <SignInPage mode={"signup"} />,
   },
+  {
+    path: "/password-reset",
+    element: <SignInPage mode="password-reset" />,
+  },
 ]);
 
 interface ContextType {
