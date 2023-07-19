@@ -22,6 +22,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [resetMessageSent, setResetMessageSent] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -116,12 +117,25 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   return (
     <div className={classes.container}>
-      <hgroup className={classes.header}>
-        <h1 className={classes.h1}>Audio</h1>
-        <p className={classes.h1}>It's modular and designed to last</p>
-      </hgroup>
+      {!resetPasswordMode && (
+        <hgroup className={classes.header}>
+          <h1 className={classes.h1}>Audio</h1>
+          <p className={classes.h1}>It's modular and designed to last</p>
+        </hgroup>
+      )}
+      {resetPasswordMode && <h1>Reset your password</h1>}
       <div className={classes.bottomSection}>
         <form onSubmit={authenticateUser} action="" className={classes.form}>
+          {resetMessageSent && (
+            <div className={classes.resetMessageSuccessDiv}>
+              <p>
+                Reset message sent!{" "}
+                <Link onClick={() => setResetMessageSent(false)} to={"/signin"}>
+                  go back to sign in
+                </Link>
+              </p>
+            </div>
+          )}
           {error && (
             <div className={classes.errorDiv}>
               <p>{error}</p>
@@ -130,6 +144,14 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
                 color="rgb(255, 101, 101)"
                 height={"1rem"}
               />
+            </div>
+          )}
+          {resetPasswordMode && (
+            <div className={classes.resetParagraphDiv}>
+              <p>
+                Enter your account email address and we will send you a password
+                reset link.
+              </p>
             </div>
           )}
           <div className={classes.inputContainer}>
@@ -145,25 +167,27 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
               <label htmlFor="email">Email</label>
             </div>
           </div>
-          <div className={classes.inputContainer}>
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              id="password"
-              type="password"
-              placeholder=" "
-            />
-            <div className={classes.label}>
-              <Lock />
-              <label htmlFor="password">Password</label>
+          {!resetPasswordMode && (
+            <div className={classes.inputContainer}>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                type="password"
+                placeholder=" "
+              />
+              <div className={classes.label}>
+                <Lock />
+                <label htmlFor="password">Password</label>
+              </div>
             </div>
-          </div>
-          {signInMode && <a href="#">Forgot Password</a>}
+          )}
+          {signInMode && <Link to={"/password-reset"}>Forgot Password?</Link>}
           <button>
             {loading ? <BeatLoader color={"white"} size={10} /> : buttonText}
           </button>
         </form>
-        {!signInMode && (
+        {!signInMode && !resetPasswordMode && (
           <ul className={classes.socialMediaList}>
             <li>
               <button>
@@ -193,12 +217,14 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
             </Link>
           </p>
         ) : (
-          <p className={classes.SignUpParagraph}>
-            Already have an account?{" "}
-            <Link onClick={() => setError("")} to="/signin">
-              Sign In here
-            </Link>
-          </p>
+          !resetPasswordMode && (
+            <p className={classes.SignUpParagraph}>
+              Already have an account?{" "}
+              <Link onClick={() => setError("")} to="/signin">
+                Sign In here
+              </Link>
+            </p>
+          )
         )}
       </div>
     </div>
