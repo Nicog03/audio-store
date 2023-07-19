@@ -78,6 +78,7 @@
   flex-direction: column;
   gap: 1.563rem;
   padding-inline: 1.5rem;
+  margin-block-start: 4rem;
 }
 
 .greetings h3 {
