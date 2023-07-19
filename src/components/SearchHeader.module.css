@@ -20,10 +20,6 @@
   font-size: 1rem;
 }
 
-.noItemMessage {
-  color: var(--color-green);
-}
-
 .shoppingLink {
   display: flex;
   gap: 0.2rem;
