@@ -12,6 +12,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
+import TextInput from "../components/TextInput";
+
 interface propTypes {
   mode: "signin" | "signup" | "password-reset";
 }
@@ -155,31 +157,25 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
             </div>
           )}
           <div className={classes.inputContainer}>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              id="email"
-              type="email"
-              placeholder=" "
+            <TextInput
+              type="text"
+              changeAction={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              icon={<Mail />}
+              placeholder="Email"
             />
-            <div className={classes.label}>
-              <Mail />
-              <label htmlFor="email">Email</label>
-            </div>
           </div>
           {!resetPasswordMode && (
             <div className={classes.inputContainer}>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                id="password"
+              <TextInput
                 type="password"
-                placeholder=" "
+                changeAction={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setPassword(e.target.value)
+                }
+                icon={<Lock />}
+                placeholder="Password"
               />
-              <div className={classes.label}>
-                <Lock />
-                <label htmlFor="password">Password</label>
-              </div>
             </div>
           )}
           {signInMode && <Link to={"/password-reset"}>Forgot Password?</Link>}
