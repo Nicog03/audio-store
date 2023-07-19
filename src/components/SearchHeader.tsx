@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
 import Logo from "../components/Logo";
+import MenuButton from "./MenuButton";
+
 import blankProfilePic from "../assets/png/blank-profile-picture.png";
 
 import { Context } from "../App";
@@ -69,7 +71,9 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
       <header className={classes.header}>
         {defaultMode ? (
           <>
-            <img src="src/assets/svg/menu.svg" alt="" />
+            <div className={classes.navBarDiv}>
+              <MenuButton />
+            </div>
             <Logo />
             {loggedIn ? (
               <div className={classes.profileSection}>
