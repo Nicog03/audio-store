@@ -51,7 +51,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
         <TabBarDescription productId={productData!.id} />
       </div>
       {mode === "overview" ? (
-        <>
+        <div className={classes.overviewContent}>
           <div className={classes.tabContent}>
             <ImageCarousel />
           </div>
@@ -66,7 +66,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
             </div>
             <ProductCarouselMedium products={data} />
           </section>
-        </>
+        </div>
       ) : (
         <div className={classes.tabContent}>
           <Features description={productData!.description} />
