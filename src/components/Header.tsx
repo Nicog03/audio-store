@@ -3,7 +3,7 @@ import { ChevronLeft, Trash2, ShoppingCart, LogOut } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
-import Logo from "../components/Logo";
+import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 
 import blankProfilePic from "../assets/png/blank-profile-picture.png";
@@ -13,13 +13,13 @@ import { Context } from "../App";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
 
-import classes from "./SearchHeader.module.css";
+import classes from "./Header.module.css";
 
 interface PropType {
   mode?: "search" | "default" | "shop" | "product-page";
 }
 
-const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
+const Header: React.FC<PropType> = ({ mode = "default" }) => {
   const { context, setContext } = useContext(Context);
 
   const [loggedIn, setLoggedIn] = useState(false);
@@ -127,4 +127,4 @@ const SearchHeader: React.FC<PropType> = ({ mode = "default" }) => {
   );
 };
 
-export default SearchHeader;
+export default Header;
