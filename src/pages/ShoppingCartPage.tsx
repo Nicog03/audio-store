@@ -1,6 +1,6 @@
 import classes from "./ShoppingCartPage.module.css";
 
-import SearchHeader from "../components/SearchHeader";
+import Header from "../components/Header";
 import Button from "../components/Button";
 import { Context } from "../App";
 import { useContext, useState } from "react";
@@ -26,7 +26,7 @@ const ShoppingCartPage = () => {
   return (
     <>
       <div className={classes.container}>
-        <SearchHeader mode="shop" />
+        <Header mode="shop" />
         <div className={classes.content}>
           {totalItems === 0 ? (
             <p className={classes.noItemMessage}>No items in the cart yet</p>

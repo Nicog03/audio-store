@@ -1,4 +1,4 @@
-import SearchHeader from "../components/SearchHeader";
+import Header from "../components/Header";
 import { Link, useParams, useRouteLoaderData } from "react-router-dom";
 import ProductCarouselMedium from "../components/ProductCarouselMedium";
 import { ProductType } from "./HomePage";
@@ -42,7 +42,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
 
   return (
     <>
-      <SearchHeader mode="product-page" />
+      <Header mode="product-page" />
       <div className={classes.productHeadingContainer}>
         <p>USD {productData?.price.replace("$", "")}</p>
         <h1>{productData?.name}</h1>

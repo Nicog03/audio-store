@@ -12,7 +12,7 @@ import {
 import classes from "./HomePage.module.css";
 import { useState, useEffect } from "react";
 import ProductArrayCompact from "../components/ProductArrayCompact";
-import SearchHeader from "../components/SearchHeader";
+import Header from "../components/Header";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -92,7 +92,7 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
     <div
       className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
     >
-      {searchMode ? <SearchHeader mode="search" /> : <SearchHeader />}
+      {searchMode ? <Header mode="search" /> : <Header />}
 
       <div className={classes.firstSection}>
         {!searchMode && (

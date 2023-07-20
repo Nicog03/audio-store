@@ -1,4 +1,4 @@
-import SearchHeader from "../components/SearchHeader";
+import Header from "../components/Header";
 import FilterButton from "../components/FilterButton";
 import classes from "./AllProductsPage.module.css";
 import MediumProductCard from "../components/MediumProducCard";
@@ -198,7 +198,7 @@ const AllProductsPage = () => {
 
   return (
     <div className={classes.container}>
-      <SearchHeader mode="product-page" />
+      <Header mode="product-page" />
       <div className={classes.upperContainer}>
         <div className={classes.headingContainer}>
           <p>Featured products</p>
