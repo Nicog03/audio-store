@@ -77,3 +77,49 @@
 .buttonDiv button {
   cursor: pointer;
 }
+
+.flexContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.productRightSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.tabContentMediumScreen {
+  aspect-ratio: 1;
+  width: 392px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .productHeadingContainer {
+    margin: 0;
+    padding: 0;
+  }
+
+  .tabContent {
+    margin: 0;
+    /* aspect-ratio: 1; */
+    /* width: 392px; */
+  }
+
+  .buttonDiv {
+    position: static;
+    margin: 0;
+  }
+
+  .overviewContent {
+    padding: 1rem;
+    width: 70vw;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+
+  .otherProductsSection {
+    border-radius: 1rem;
+  }
+}
