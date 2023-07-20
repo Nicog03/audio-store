@@ -11,6 +11,8 @@ import Features from "../components/Features";
 import { Context } from "../App";
 import { useContext, useState } from "react";
 
+import { useMediaQuery } from "react-responsive";
+
 interface PropType {
   mode: "overview" | "features";
 }
@@ -24,6 +26,8 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
   const reloadPage = () => {
     setValue((value) => value + 1);
   };
+
+  const isMediumScreen = useMediaQuery({ query: "(min-width: 1024px" });
 
   const { id } = useParams();
 
@@ -43,17 +47,44 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
   return (
     <>
       <Header mode="product-page" />
-      <div className={classes.productHeadingContainer}>
-        <p>USD {productData?.price.replace("$", "")}</p>
-        <h1>{productData?.name}</h1>
-      </div>
+      {!isMediumScreen && (
+        <div className={classes.productHeadingContainer}>
+          <p>USD {productData?.price.replace("$", "")}</p>
+          <h1>{productData?.name}</h1>
+        </div>
+      )}
       <div className={classes.tabDiv}>
         <TabBarDescription productId={productData!.id} />
       </div>
       {mode === "overview" ? (
         <div className={classes.overviewContent}>
-          <div className={classes.tabContent}>
-            <ImageCarousel />
+          <div className={classes.flexContainer}>
+            <div
+              className={`${classes.tabContent} ${
+                isMediumScreen ? classes.tabContentMediumScreen : ""
+              }`}
+            >
+              <ImageCarousel />
+            </div>
+            {isMediumScreen && (
+              <div className={classes.productRightSide}>
+                <div className={classes.productInfo}>
+                  <div className={classes.productHeadingContainer}>
+                    <p>USD {productData?.price.replace("$", "")}</p>
+                    <h1>{productData?.name}</h1>
+                  </div>
+                  <div className={classes.tabContent}>
+                    <Features description={productData!.description} />
+                  </div>
+                </div>
+                <div className={classes.buttonDiv}>
+                  <Button
+                    textContent="Add To Cart"
+                    onClick={pushProductToCartHandler}
+                  />
+                </div>
+              </div>
+            )}
           </div>
           <section className={classes.reviewsSection}>
             <h2>Reviews ({productData?.reviews.length})</h2>
@@ -73,9 +104,14 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
         </div>
       )}
 
-      <div className={classes.buttonDiv}>
-        <Button textContent="Add To Cart" onClick={pushProductToCartHandler} />
-      </div>
+      {!isMediumScreen && (
+        <div className={classes.buttonDiv}>
+          <Button
+            textContent="Add To Cart"
+            onClick={pushProductToCartHandler}
+          />
+        </div>
+      )}
     </>
   );
 };
