@@ -91,3 +91,26 @@
   gap: 0.3rem;
   align-items: center;
 }
+
+.navList {
+  display: none;
+}
+
+.navList a {
+  color: var(--color-black);
+}
+
+.navList a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+  .navBarDiv {
+    display: none;
+  }
+
+  .navList {
+    display: flex;
+    gap: 1rem;
+  }
+}

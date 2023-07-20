@@ -75,6 +75,17 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
               <MenuButton />
             </div>
             <Logo />
+            <ul className={classes.navList}>
+              <li>
+                <Link to="/headphones">Home</Link>
+              </li>
+              <li>
+                <Link to="/all-products">All products</Link>
+              </li>
+              <li>
+                <Link to="/shopping-cart">Cart</Link>
+              </li>
+            </ul>
             {loggedIn ? (
               <div className={classes.profileSection}>
                 <button
