@@ -59,11 +59,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
       {mode === "overview" ? (
         <div className={classes.overviewContent}>
           <div className={classes.flexContainer}>
-            <div
-              className={`${classes.tabContent} ${
-                isMediumScreen ? classes.tabContentMediumScreen : ""
-              }`}
-            >
+            <div className={classes.tabContent}>
               <ImageCarousel />
             </div>
             {isMediumScreen && (
