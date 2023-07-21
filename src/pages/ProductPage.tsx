@@ -71,9 +71,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
                     <p>USD {productData?.price.replace("$", "")}</p>
                     <h1>{productData?.name}</h1>
                   </div>
-                  <div className={classes.tabContent}>
-                    <Features description={productData!.description} />
-                  </div>
+                  <p>{productData!.description}</p>
                 </div>
                 <div className={classes.buttonDiv}>
                   <Button
