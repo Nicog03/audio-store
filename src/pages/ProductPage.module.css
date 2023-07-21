@@ -81,6 +81,7 @@
 .flexContainer {
   display: flex;
   gap: 1rem;
+  margin-block-start: 4rem;
 }
 
 .productRightSide {
