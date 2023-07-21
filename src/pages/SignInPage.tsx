@@ -3,6 +3,7 @@ import classes from "./SignInPage.module.css";
 import { Mail, Lock, X } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
+import { useMediaQuery } from "react-responsive";
 
 import { auth, facebookSignIn, googleSignIn } from "../firebase";
 
@@ -28,6 +29,8 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const isMediumScreen = useMediaQuery({ query: "(min-width: 900px" });
 
   const navigate = useNavigate();
 
@@ -121,109 +124,117 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   return (
     <div className={classes.container}>
-      {!resetPasswordMode && (
-        <hgroup className={classes.header}>
-          <h1 className={classes.h1}>Audio</h1>
-          <p className={classes.h1}>It's modular and designed to last</p>
-        </hgroup>
-      )}
-      {resetPasswordMode && <h1>Reset your password</h1>}
-      <div className={classes.bottomSection}>
-        <form onSubmit={authenticateUser} action="" className={classes.form}>
-          {resetMessageSent && (
-            <div className={classes.resetMessageSuccessDiv}>
-              <p>
-                Reset message sent!{" "}
-                <Link onClick={() => setResetMessageSent(false)} to={"/signin"}>
-                  go back to sign in
-                </Link>
-              </p>
-            </div>
-          )}
-          {error && (
-            <div className={classes.errorDiv}>
-              <p>{error}</p>
-              <X
-                onClick={() => setError("")}
-                color="rgb(255, 101, 101)"
-                height={"1rem"}
-              />
-            </div>
-          )}
-          {resetPasswordMode && (
-            <div className={classes.resetParagraphDiv}>
-              <p>
-                Enter your account email address and we will send you a password
-                reset link.
-              </p>
-            </div>
-          )}
-          <div className={classes.inputContainer}>
-            <TextInput
-              type="text"
-              changeAction={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              icon={<Mail />}
-              placeholder="Email"
-            />
-          </div>
-          {!resetPasswordMode && (
+      <div className={classes.innerContainer}>
+        {!resetPasswordMode && (
+          <hgroup className={classes.header}>
+            <h1 className={classes.h1}>Audio</h1>
+            <p className={classes.h1}>It's modular and designed to last</p>
+          </hgroup>
+        )}
+        {resetPasswordMode && <h1>Reset your password</h1>}
+        <div className={classes.bottomSection}>
+          <form onSubmit={authenticateUser} action="" className={classes.form}>
+            {resetMessageSent && (
+              <div className={classes.resetMessageSuccessDiv}>
+                <p>
+                  Reset message sent!{" "}
+                  <Link
+                    onClick={() => setResetMessageSent(false)}
+                    to={"/signin"}
+                  >
+                    go back to sign in
+                  </Link>
+                </p>
+              </div>
+            )}
+            {error && (
+              <div className={classes.errorDiv}>
+                <p>{error}</p>
+                <X
+                  onClick={() => setError("")}
+                  color="rgb(255, 101, 101)"
+                  height={"1rem"}
+                />
+              </div>
+            )}
+            {resetPasswordMode && (
+              <div className={classes.resetParagraphDiv}>
+                <p>
+                  Enter your account email address and we will send you a
+                  password reset link.
+                </p>
+              </div>
+            )}
             <div className={classes.inputContainer}>
               <TextInput
-                type="password"
+                type="text"
                 changeAction={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setPassword(e.target.value)
+                  setEmail(e.target.value)
                 }
-                icon={<Lock />}
-                placeholder="Password"
+                icon={<Mail />}
+                placeholder="Email"
               />
             </div>
-          )}
-          {signInMode && <Link to={"/password-reset"}>Forgot Password?</Link>}
-          <button>
-            {loading ? <BeatLoader color={"white"} size={10} /> : buttonText}
-          </button>
-        </form>
-        {!signInMode && !resetPasswordMode && (
-          <ul className={classes.socialMediaList}>
-            <li>
-              <button>
-                <img src="./src/assets/svg/apple-logo.svg" alt="apple logo" />
-              </button>
-            </li>
-            <li>
-              <button onClick={signInWithFacebook}>
-                <img
-                  src="./src/assets/svg/faceboo-logo.svg"
-                  alt="facebook logo"
+            {!resetPasswordMode && (
+              <div className={classes.inputContainer}>
+                <TextInput
+                  type="password"
+                  changeAction={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setPassword(e.target.value)
+                  }
+                  icon={<Lock />}
+                  placeholder="Password"
                 />
-              </button>
-            </li>
-            <li>
-              <button onClick={signInWithGoogle}>
-                <img src="./src/assets/svg/google-logo.svg" alt="google logo" />
-              </button>
-            </li>
-          </ul>
-        )}
-        {signInMode ? (
-          <p className={classes.SignUpParagraph}>
-            Don't have an account?{" "}
-            <Link onClick={() => setError("")} to="/signup">
-              Sign Up here
-            </Link>
-          </p>
-        ) : (
-          !resetPasswordMode && (
+              </div>
+            )}
+            {signInMode && <Link to={"/password-reset"}>Forgot Password?</Link>}
+            <button>
+              {loading ? <BeatLoader color={"white"} size={10} /> : buttonText}
+            </button>
+          </form>
+          {!signInMode && !resetPasswordMode && (
+            <ul className={classes.socialMediaList}>
+              <li>
+                <button>
+                  <img src="./src/assets/svg/apple-logo.svg" alt="apple logo" />
+                </button>
+              </li>
+              <li>
+                <button onClick={signInWithFacebook}>
+                  <img
+                    src="./src/assets/svg/faceboo-logo.svg"
+                    alt="facebook logo"
+                  />
+                </button>
+              </li>
+              <li>
+                <button onClick={signInWithGoogle}>
+                  <img
+                    src="./src/assets/svg/google-logo.svg"
+                    alt="google logo"
+                  />
+                </button>
+              </li>
+            </ul>
+          )}
+          {signInMode ? (
             <p className={classes.SignUpParagraph}>
-              Already have an account?{" "}
-              <Link onClick={() => setError("")} to="/signin">
-                Sign In here
+              Don't have an account?{" "}
+              <Link onClick={() => setError("")} to="/signup">
+                Sign Up here
               </Link>
             </p>
-          )
-        )}
+          ) : (
+            !resetPasswordMode && (
+              <p className={classes.SignUpParagraph}>
+                Already have an account?{" "}
+                <Link onClick={() => setError("")} to="/signin">
+                  Sign In here
+                </Link>
+              </p>
+            )
+          )}
+        </div>
       </div>
     </div>
   );
