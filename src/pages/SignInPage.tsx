@@ -124,6 +124,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.backGroundImage}></div>
       <div className={classes.innerContainer}>
         {!resetPasswordMode && (
           <hgroup className={classes.header}>
