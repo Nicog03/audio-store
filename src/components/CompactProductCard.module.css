@@ -1,20 +1,20 @@
 .container {
   display: flex;
-  gap: 0.938rem;
+  gap: 0.938em;
   width: 100%;
   color: black;
 }
 
 .imageContainer {
   background-color: var(--color-light-grey-1);
-  border-radius: 0.625rem;
-  height: 5.438rem;
-  width: 5.438rem;
+  border-radius: 0.625em;
+  height: 5.438em;
+  width: 5.438em;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.625rem;
+  padding: 0.625em;
 }
 
 .imageContainer img {
@@ -32,40 +32,40 @@
 .productInfoContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.313rem;
+  gap: 0.313em;
 }
 
 .price {
-  font-size: 0.875rem;
+  font-size: 0.875em;
   font-weight: bold;
 }
 
 .bottomContainer {
   display: flex;
-  font-size: 0.75rem;
+  font-size: 0.75em;
   align-items: center;
   justify-content: space-between;
 }
 
 .reviewSection {
   display: flex;
-  gap: 0.625rem;
+  gap: 0.625em;
 }
 
 .starSection {
   display: flex;
-  gap: 0.188rem;
+  gap: 0.188em;
 }
 
 .optionsIcon {
-  height: 1.25rem;
+  height: 1.25em;
   color: var(--color-dark-grey);
 }
 
 .quantityContainer button {
   border: var(--color-grey) 1px solid;
-  border-radius: 0.625rem;
-  padding: 0.313rem;
+  border-radius: 0.625em;
+  padding: 0.313em;
 }
 
 .shoppingBottomContainer {
@@ -83,7 +83,7 @@
 .quantityContainer {
   display: flex;
   align-items: center;
-  gap: 1.563rem;
+  gap: 1.563em;
 }
 
 .trashButton {
