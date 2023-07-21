@@ -89,46 +89,48 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
   };
 
   return (
-    <div
-      className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
-    >
-      {searchMode ? <Header mode="search" /> : <Header />}
+    <div className={classes.parentContainer}>
+      <div
+        className={`${classes.container} ${searchMode ? classes.onSearch : ""}`}
+      >
+        {searchMode ? <Header mode="search" /> : <Header />}
 
-      <div className={classes.firstSection}>
+        <div className={classes.firstSection}>
+          {!searchMode && (
+            <div className={classes.greetings}>
+              <p>Hi, {loggedIn && userName}</p>
+              <h3>What are you looking for today?</h3>
+            </div>
+          )}
+          <TextInput
+            type="text"
+            icon={<Search />}
+            placeholder={`Search ${category!}`}
+            focusAction={changePageModeHandler}
+            changeAction={filterArrayHandler}
+          />
+        </div>
         {!searchMode && (
-          <div className={classes.greetings}>
-            <p>Hi, {loggedIn && userName}</p>
-            <h3>What are you looking for today?</h3>
+          <div className={classes.products}>
+            <CategoryList />
+            <ProductCarouselLarge products={categoryArray} />
+            <div className={classes.featuredHeading}>
+              <p>Featured Products</p>
+              <Link to="/all-products">See All</Link>
+            </div>
+            <ProductCarouselMedium products={categoryArray} />
           </div>
         )}
-        <TextInput
-          type="text"
-          icon={<Search />}
-          placeholder={`Search ${category!}`}
-          focusAction={changePageModeHandler}
-          changeAction={filterArrayHandler}
-        />
+        {searchMode && (
+          <section className={classes.popularProductsSection}>
+            <h3 className={classes.popularProductsHeader}>Popular products</h3>
+            <ProductArrayCompact
+              isOnShoppingCart={false}
+              products={filteredArray}
+            />
+          </section>
+        )}
       </div>
-      {!searchMode && (
-        <div className={classes.products}>
-          <CategoryList />
-          <ProductCarouselLarge products={categoryArray} />
-          <div className={classes.featuredHeading}>
-            <p>Featured Products</p>
-            <Link to="/all-products">See All</Link>
-          </div>
-          <ProductCarouselMedium products={categoryArray} />
-        </div>
-      )}
-      {searchMode && (
-        <section className={classes.popularProductsSection}>
-          <h3 className={classes.popularProductsHeader}>Popular products</h3>
-          <ProductArrayCompact
-            isOnShoppingCart={false}
-            products={filteredArray}
-          />
-        </section>
-      )}
     </div>
   );
 };
