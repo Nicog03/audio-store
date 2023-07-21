@@ -115,3 +115,11 @@
   font-size: 1rem;
   font-weight: normal;
 }
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 70vw;
+    max-width: 60rem;
+    margin-inline: auto;
+  }
+}
