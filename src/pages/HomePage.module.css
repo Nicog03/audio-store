@@ -118,6 +118,13 @@
 }
 
 @media only screen and (min-width: 1024px) {
+  .parentContainer {
+    min-height: 100vh;
+    max-height: fit-content;
+    display: flex;
+    align-items: center;
+  }
+
   .container {
     width: 70vw;
     max-width: 60em;
