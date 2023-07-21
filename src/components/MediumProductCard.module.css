@@ -6,6 +6,7 @@
   border-radius: 0.938em;
   gap: 1.25em;
   color: black;
+  height: 100%;
 }
 
 .cardContainer img {
