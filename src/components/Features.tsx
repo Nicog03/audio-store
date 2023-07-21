@@ -3,7 +3,7 @@ interface PropType {
 }
 
 const Features: React.FC<PropType> = ({ description }) => {
-  return <p style={{ fontSize: "0.875rem" }}>{description}</p>;
+  return <p style={{ fontSize: "0.875em" }}>{description}</p>;
 };
 
 export default Features;
