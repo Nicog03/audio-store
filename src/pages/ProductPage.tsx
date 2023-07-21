@@ -48,14 +48,16 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
     <>
       <Header mode="product-page" />
       {!isMediumScreen && (
-        <div className={classes.productHeadingContainer}>
-          <p>USD {productData?.price.replace("$", "")}</p>
-          <h1>{productData?.name}</h1>
-        </div>
+        <>
+          <div className={classes.productHeadingContainer}>
+            <p>USD {productData?.price.replace("$", "")}</p>
+            <h1>{productData?.name}</h1>
+          </div>
+          <div className={classes.tabDiv}>
+            <TabBarDescription productId={productData!.id} />
+          </div>
+        </>
       )}
-      <div className={classes.tabDiv}>
-        <TabBarDescription productId={productData!.id} />
-      </div>
       {mode === "overview" ? (
         <div className={classes.overviewContent}>
           <div className={classes.flexContainer}>
