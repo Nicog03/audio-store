@@ -7,36 +7,36 @@
 .upperContainer {
   display: flex;
   flex-direction: column;
-  padding-inline: 1.5rem;
-  gap: 1.25rem;
-  padding-block-end: 2.313rem;
-  padding-block-start: 4rem;
+  padding-inline: 1.5em;
+  gap: 1.25em;
+  padding-block-end: 2.313em;
+  padding-block-start: 4em;
 }
 
 .headingContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.688rem;
+  gap: 0.688em;
 }
 
 .headingContainer h2 {
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-family: "Montserrat", sans-serif;
 }
 
 .productsSection {
   display: flex;
   flex-wrap: wrap;
-  padding: 1.5rem;
+  padding: 1.5em;
   background-color: var(--color-light-grey-2);
-  gap: 0.813rem;
-  border-radius: 1.875rem 1.875rem 0 0;
+  gap: 0.813em;
+  border-radius: 1.875em 1.875em 0 0;
 }
 
 @media only screen and (min-width: 1024px) {
   .container {
     width: 70vw;
-    max-width: 55rem;
+    max-width: 55em;
     margin-inline: auto;
   }
 }
