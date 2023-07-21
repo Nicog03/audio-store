@@ -1,33 +1,37 @@
 .cardContainer {
-  width: 9.688rem;
+  width: 9.688em;
   display: grid;
-  padding: 0.938rem 0.625rem;
+  padding: 0.938em 0.625em;
   background-color: var(--color-white);
-  border-radius: 0.938rem;
-  gap: 1.25rem;
+  border-radius: 0.938em;
+  gap: 1.25em;
   color: black;
 }
 
+.cardContainer img {
+  justify-self: center;
+}
+
 .info h3 {
-  font-size: 0.875rem;
+  font-size: 0.875em;
   font-weight: normal;
 }
 
 .info p {
-  font-size: 0.75rem;
+  font-size: 0.75em;
   font-weight: bold;
 }
 
 .reviewSection {
   display: flex;
   align-items: center;
-  font-size: 0.625rem;
-  gap: 0.625rem;
+  font-size: 0.625em;
+  gap: 0.625em;
   align-self: flex-end;
 }
 
 .ratingSection {
   display: flex;
   align-items: center;
-  gap: 0.188rem;
+  gap: 0.188em;
 }
