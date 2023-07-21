@@ -78,12 +78,6 @@
   cursor: pointer;
 }
 
-.flexContainer {
-  display: flex;
-  gap: 1rem;
-  margin-block-start: 4rem;
-}
-
 .productRightSide {
   display: flex;
   flex-direction: column;
@@ -99,6 +93,18 @@
 }
 
 @media only screen and (min-width: 1024px) {
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-block-start: 4rem;
+  }
+
+  .flexContainer {
+    display: flex;
+    gap: 1rem;
+  }
+
   .productHeadingContainer {
     margin: 0;
     padding: 0;
