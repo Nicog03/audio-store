@@ -160,6 +160,20 @@
 @media only screen and (min-width: 900px) {
   .container {
     justify-content: center;
+    background-image: none;
+  }
+
+  .backGroundImage {
+    background-color: var(--color-green);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
+    background-image: url("../assets/png/login-bg.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    transform: scale(1.1);
   }
 
   .header {
@@ -167,6 +181,12 @@
     height: 100%;
     border-radius: 1rem;
     justify-content: center;
+    flex: 1;
+    background-image: linear-gradient(transparent, var(--color-black)),
+      linear-gradient(var(--color-green), transparent),
+      url("./src/assets/png/login-bg.png");
+    background-position: 50% 50%;
+    background-size: cover;
   }
 
   .innerContainer {
@@ -179,10 +199,6 @@
     padding: 1rem;
     border-radius: 1rem;
     background-color: rgba(0, 0, 0, 0.528);
-  }
-
-  .header {
-    flex: 1;
   }
 
   .bottomSection {
