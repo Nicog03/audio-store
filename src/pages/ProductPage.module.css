@@ -92,6 +92,12 @@
   flex: 1;
 }
 
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 @media only screen and (min-width: 1024px) {
   .productHeadingContainer {
     margin: 0;
