@@ -45,7 +45,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
   };
 
   return (
-    <>
+    <div className={classes.container}>
       <Header mode="product-page" />
       {!isMediumScreen && (
         <>
@@ -108,7 +108,7 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
           />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
