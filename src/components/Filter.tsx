@@ -86,10 +86,12 @@ const Filter: React.FC<PropType> = ({
         <h3>Price Range</h3>
         <div className={classes.textInputContainer}>
           <TextInput
+            type="text"
             placeholder="Min Price"
             changeAction={changeMinPriceHandler}
           />
           <TextInput
+            type="text"
             placeholder="Max Price"
             changeAction={changeMaxPriceHandler}
           />
