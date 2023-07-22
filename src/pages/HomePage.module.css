@@ -8,6 +8,7 @@
   min-height: 100vh;
   max-height: fit-content;
   justify-content: space-between;
+  gap: 1.5em;
 }
 
 .onSearch {
@@ -129,5 +130,26 @@
     width: 70vw;
     max-width: 60em;
     margin-inline: auto;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  .parentContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .parentContainerSearchMode {
+    align-items: start;
+  }
+
+  .onSearch {
+    justify-content: start;
+  }
+
+  .container {
+    justify-content: start;
+    min-height: fit-content;
   }
 }
