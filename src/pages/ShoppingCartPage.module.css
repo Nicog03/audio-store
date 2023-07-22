@@ -6,13 +6,13 @@
 
 .content {
   display: flex;
-  gap: 2rem;
+  gap: 2em;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1.5rem;
-  margin-bottom: 8rem;
+  padding: 1.5em;
+  margin-bottom: 8em;
   height: 100%;
-  margin-block-start: 4rem;
+  margin-block-start: 4em;
 }
 
 .noItemMessage {
@@ -24,7 +24,7 @@
 .upperSection {
   display: flex;
   flex-direction: column;
-  gap: 2.063rem;
+  gap: 2.063em;
 }
 
 .items {
@@ -35,9 +35,9 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  gap: 1.313rem;
+  gap: 1.313em;
   position: fixed;
-  padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 0.5em 1.5em 1.5em 1.5em;
   bottom: 0;
   right: 0;
   left: 0;
@@ -49,7 +49,7 @@
 }
 
 .totalSection h3 {
-  font-size: 0.75rem;
+  font-size: 0.75em;
   color: var(--color-dark-grey);
 }
 
@@ -61,7 +61,7 @@
   .container,
   .bottomSection {
     width: 70vw;
-    max-width: 60rem;
+    max-width: 60em;
     margin-inline: auto;
   }
 
