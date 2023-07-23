@@ -2,6 +2,7 @@ import { ProductType } from "../pages/HomePage";
 import classes from "./ProductArrayCompact.module.css";
 import CompactProductCard from "./CompactProductCard";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface PropType {
   products: ProductType[];
@@ -9,32 +10,53 @@ interface PropType {
   updateStore?: () => void;
 }
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemA = {
+  hidden: { opacity: 0, x: -50 },
+  show: { opacity: 1, x: 0 },
+};
+
 const ProductArrayCompact: React.FC<PropType> = ({
   products,
   isOnShoppingCart,
   updateStore,
 }) => {
   return (
-    <div className={classes.container}>
-      {products.map((product) =>
-        isOnShoppingCart ? (
-          <CompactProductCard
-            updateStore={updateStore}
-            key={product.created_at}
-            productInfo={product}
-            isOnShoppingCart={isOnShoppingCart}
-          />
-        ) : (
-          <Link to={`/product/${product.id}/overview`}>
-            <CompactProductCard
-              key={product.created_at}
-              productInfo={product}
-              isOnShoppingCart={isOnShoppingCart}
-            />
-          </Link>
-        )
-      )}
-    </div>
+    <motion.div initial={"hidden"} animate={"show"} variants={container}>
+      <div className={classes.container}>
+        {products.map((product) =>
+          isOnShoppingCart ? (
+            <motion.li variants={itemA}>
+              <CompactProductCard
+                updateStore={updateStore}
+                key={product.created_at}
+                productInfo={product}
+                isOnShoppingCart={isOnShoppingCart}
+              />
+            </motion.li>
+          ) : (
+            <motion.li variants={itemA}>
+              <Link to={`/product/${product.id}/overview`}>
+                <CompactProductCard
+                  key={product.created_at}
+                  productInfo={product}
+                  isOnShoppingCart={isOnShoppingCart}
+                />
+              </Link>
+            </motion.li>
+          )
+        )}
+      </div>
+    </motion.div>
   );
 };
 
