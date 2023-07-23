@@ -8,6 +8,8 @@ import { useContext } from "react";
 import { Context } from "../App";
 import productImage from "../assets/png/headset.png";
 
+import { motion } from "framer-motion";
+
 interface PropType {
   productInfo: ProductType;
   isOnShoppingCart?: boolean;
@@ -41,6 +43,11 @@ const CompactProductCard: React.FC<PropType> = ({
     );
   };
 
+  const quantity = {
+    hidden: { y: -5 },
+    show: { y: 0 },
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.imageContainer}>
@@ -60,7 +67,6 @@ const CompactProductCard: React.FC<PropType> = ({
               </div>
               <p>{productInfo.reviews.length} Reviews</p>
             </div>
-
             <MoreVertical className={classes.optionsIcon} />
           </div>
         ) : (
@@ -69,7 +75,14 @@ const CompactProductCard: React.FC<PropType> = ({
               <button onClick={reduceQuantityHandler}>
                 <Minus height={"1.25rem"} width={"1.25rem"} />
               </button>
-              {productInfo.quantity}
+              <motion.p
+                variants={quantity}
+                initial="hidden"
+                animate="show"
+                key={productInfo.quantity}
+              >
+                {productInfo.quantity}
+              </motion.p>
               <button onClick={increaseQuantityHandler}>
                 <Plus height={"1.25rem"} width={"1.25rem"} />
               </button>
