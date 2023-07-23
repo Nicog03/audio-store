@@ -16,6 +16,8 @@ import Header from "../components/Header";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
+import { motion } from "framer-motion";
+
 export interface ReviewType {
   user: string;
   description: string;
@@ -101,38 +103,60 @@ const HomePage: React.FC<PropTypes> = ({ mode }) => {
 
         <div className={classes.firstSection}>
           {!searchMode && (
-            <div className={classes.greetings}>
-              <p>Hi, {loggedIn && userName}</p>
-              <h3>What are you looking for today?</h3>
-            </div>
+            <motion.div
+              initial={{ transform: "translateY(-100%)" }}
+              exit={{ transform: "translateY(-100%)" }}
+              animate={{ transform: "translateY(0)" }}
+            >
+              <div className={classes.greetings}>
+                <p>Hi, {loggedIn && userName}</p>
+                <h3>What are you looking for today?</h3>
+              </div>
+            </motion.div>
           )}
-          <TextInput
-            type="text"
-            icon={<Search />}
-            placeholder={`Search ${category!}`}
-            focusAction={changePageModeHandler}
-            changeAction={filterArrayHandler}
-          />
+          <motion.div layout>
+            <TextInput
+              type="text"
+              icon={<Search />}
+              placeholder={`Search ${category!}`}
+              focusAction={changePageModeHandler}
+              changeAction={filterArrayHandler}
+            />
+          </motion.div>
         </div>
         {!searchMode && (
-          <div className={classes.products}>
-            <CategoryList />
-            <ProductCarouselLarge products={categoryArray} />
-            <div className={classes.featuredHeading}>
-              <p>Featured Products</p>
-              <Link to="/all-products">See All</Link>
-            </div>
-            <ProductCarouselMedium products={categoryArray} />
-          </div>
+          <motion.div
+            initial={{ transform: "translateY(100%)" }}
+            exit={{ transform: "translateY(100%)" }}
+            animate={{ transform: "translateY(0)" }}
+          >
+            <motion.div layout="position" className={classes.products}>
+              <CategoryList />
+              <ProductCarouselLarge products={categoryArray} />
+              <div className={classes.featuredHeading}>
+                <p>Featured Products</p>
+                <Link to="/all-products">See All</Link>
+              </div>
+              <ProductCarouselMedium products={categoryArray} />
+            </motion.div>
+          </motion.div>
         )}
         {searchMode && (
-          <section className={classes.popularProductsSection}>
-            <h3 className={classes.popularProductsHeader}>Popular products</h3>
-            <ProductArrayCompact
-              isOnShoppingCart={false}
-              products={filteredArray}
-            />
-          </section>
+          <motion.div
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <section className={classes.popularProductsSection}>
+              <h3 className={classes.popularProductsHeader}>
+                Popular products
+              </h3>
+              <ProductArrayCompact
+                isOnShoppingCart={false}
+                products={filteredArray}
+              />
+            </section>
+          </motion.div>
         )}
       </div>
     </div>
