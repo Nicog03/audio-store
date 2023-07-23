@@ -3,7 +3,6 @@ import classes from "./SignInPage.module.css";
 import { Mail, Lock, X } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
-import { useMediaQuery } from "react-responsive";
 
 import { auth, facebookSignIn, googleSignIn } from "../firebase";
 
@@ -29,8 +28,6 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const isMediumScreen = useMediaQuery({ query: "(min-width: 900px" });
 
   const navigate = useNavigate();
 
