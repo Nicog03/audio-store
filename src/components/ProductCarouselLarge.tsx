@@ -21,11 +21,15 @@ const ProductCarouselLarge: React.FC<PropTypes> = ({ products }) => {
   return (
     <>
       <Splide options={splideOptions}>
-        {filteredArray.map((product) => (
-          <SplideSlide key={product.created_at}>
-            <LargeProductCard productInfo={product} />
-          </SplideSlide>
-        ))}
+        {filteredArray.length ? (
+          filteredArray.map((product) => (
+            <SplideSlide key={product.created_at}>
+              <LargeProductCard productInfo={product} />
+            </SplideSlide>
+          ))
+        ) : (
+          <LargeProductCard />
+        )}
       </Splide>
     </>
   );
