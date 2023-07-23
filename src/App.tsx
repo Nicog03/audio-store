@@ -61,7 +61,10 @@ interface ContextType {
   setContext: React.Dispatch<SetStateAction<ProductType[]>>;
 }
 
-export const Context = createContext<ContextType>();
+export const Context = createContext<ContextType>({
+  context: [],
+  setContext: () => null,
+});
 
 function App() {
   const [context, setContext] = useState<ProductType[]>([]);
