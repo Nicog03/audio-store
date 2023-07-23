@@ -8,7 +8,7 @@ import ProductArrayCompact from "../components/ProductArrayCompact";
 
 const ShoppingCartPage = () => {
   const { context } = useContext(Context);
-  const [value, setValue] = useState(0);
+  const [, setValue] = useState(0);
 
   let totalItems = 0;
   context.map((product) => (totalItems += product.quantity!));
