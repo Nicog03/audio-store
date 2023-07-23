@@ -19,9 +19,9 @@ interface PropType {
 
 const ProductPage: React.FC<PropType> = ({ mode }) => {
   const data = useRouteLoaderData("root-path") as ProductType[];
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, left: 0 });
 
-  const [value, setValue] = useState(0);
+  const [, setValue] = useState(0);
 
   const reloadPage = () => {
     setValue((value) => value + 1);
