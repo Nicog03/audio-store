@@ -9,6 +9,8 @@ import Menu from "../assets/svg/menu.svg";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 
+import { motion } from "framer-motion";
+
 const MenuButton = () => {
   const [navBarOpen, setNavBarOpen] = useState(false);
   const [isLoggedIn, setIsLoggeIn] = useState(false);
@@ -33,6 +35,23 @@ const MenuButton = () => {
     });
   }, []);
 
+  const linksContainer = {
+    hidden: { opacity: 0, scaleY: 0 },
+    show: {
+      opacity: 1,
+      scaleY: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const link = {
+    hidden: { opacity: 0, x: 20 },
+    show: { opacity: 1, x: 0 },
+  };
+
   return (
     <div className={classes.container}>
       <button onClick={toggleNavBar} className={classes.menuButton}>
@@ -44,24 +63,39 @@ const MenuButton = () => {
       </button>
       {navBarOpen && (
         <>
-          <div className={classes.linksContainer}>
-            <Link to="/headphones">
-              <Home height={"1.2rem"} width={"1.2rem"} /> Home
-            </Link>{" "}
-            <Link to="/all-products">
-              <Headphones height={"1.2rem"} width={"1.2rem"} />
-              All products
-            </Link>{" "}
-            <Link to="/shopping-cart">
-              <ShoppingCart height={"1.2rem"} width={"1.2rem"} />
-              Cart
-            </Link>
-            {isLoggedIn && (
-              <button className={classes.signOutButton} onClick={logOut}>
-                Sign Out
-              </button>
-            )}
-          </div>
+          <motion.div
+            variants={linksContainer}
+            initial="hidden"
+            animate="show"
+            className={classes.linksContainer}
+          >
+            <ul>
+              <motion.li variants={link}>
+                <Link to="/headphones">
+                  <Home height={"1.2rem"} width={"1.2rem"} /> Home
+                </Link>{" "}
+              </motion.li>
+              <motion.li variants={link}>
+                <Link to="/all-products">
+                  <Headphones height={"1.2rem"} width={"1.2rem"} />
+                  All products
+                </Link>{" "}
+              </motion.li>
+              <motion.li variants={link}>
+                <Link to="/shopping-cart">
+                  <ShoppingCart height={"1.2rem"} width={"1.2rem"} />
+                  Cart
+                </Link>
+              </motion.li>
+              {isLoggedIn && (
+                <motion.li variants={link}>
+                  <button className={classes.signOutButton} onClick={logOut}>
+                    Sign Out
+                  </button>
+                </motion.li>
+              )}
+            </ul>
+          </motion.div>
           <div className={classes.background} onClick={toggleNavBar}></div>
         </>
       )}
