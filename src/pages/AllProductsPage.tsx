@@ -9,6 +9,8 @@ import Filter from "../components/Filter";
 import "react-spring-bottom-sheet-updated/dist/style.css";
 import { useRouteLoaderData } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 interface FilterType {
   category: string;
   sortBy: string;
@@ -196,27 +198,53 @@ const AllProductsPage = () => {
     }
   }
 
+  const products = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const productCard = {
+    hidden: { opacity: 0, y: -20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className={classes.container}>
       <Header mode="product-page" />
       <div className={classes.upperContainer}>
-        <div className={classes.headingContainer}>
+        <motion.div
+          initial={{ transform: "translateY(-3em)" }}
+          animate={{ transform: "translateY(0)" }}
+          className={classes.headingContainer}
+        >
           <p>Featured products</p>
           <h2>See all products</h2>
-        </div>
+        </motion.div>
         <FilterButton
           clickAction={openBottomSheetHandler}
           filtersApplied={filterQnt}
         />
       </div>
-      <div className={classes.productsSection}>
+      <motion.div
+        variants={products}
+        initial="hidden"
+        animate="show"
+        className={classes.productsSection}
+      >
         {!filteredArray
           ? data.map((product) => (
-              <MediumProductCard
-                key={product.created_at}
-                productInfo={product}
-                displayReview={true}
-              />
+              <motion.li variants={productCard}>
+                <MediumProductCard
+                  key={product.created_at}
+                  productInfo={product}
+                  displayReview={true}
+                />
+              </motion.li>
             ))
           : filteredArray.map((product) => (
               <MediumProductCard
@@ -225,7 +253,7 @@ const AllProductsPage = () => {
                 displayReview={true}
               />
             ))}
-      </div>
+      </motion.div>
       <BottomSheet
         open={open}
         onDismiss={() => setOpen(false)}
