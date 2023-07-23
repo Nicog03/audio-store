@@ -15,6 +15,8 @@ import { auth } from "../firebase";
 
 import classes from "./Header.module.css";
 
+import { motion } from "framer-motion";
+
 interface PropType {
   mode?: "search" | "default" | "shop" | "product-page";
 }
@@ -66,6 +68,16 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
     setOpenProfile((prev) => !prev);
   };
 
+  const shopQuant = {
+    hide: { opacity: 0, y: -10 },
+    show: { opacity: 1, y: 0 },
+  };
+
+  const headerTitle = {
+    hide: { y: -30 },
+    show: { y: 0 },
+  };
+
   return (
     <>
       <header className={classes.header}>
@@ -74,7 +86,9 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
             <div className={classes.navBarDiv}>
               <MenuButton />
             </div>
-            <Logo />
+            <motion.div variants={headerTitle} initial="hide" animate="show">
+              <Logo />
+            </motion.div>
             <ul className={classes.navList}>
               <li>
                 <Link to="/headphones">Home</Link>
@@ -116,11 +130,38 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
             <Link to={""} onClick={goBack} className={classes.link}>
               <ChevronLeft />
             </Link>
-            {searchMode && <h1 className={classes.heading}>Search</h1>}
-            {shopMode && <h1 className={classes.heading}>Shopping Cart</h1>}
+            {searchMode && (
+              <motion.h1
+                variants={headerTitle}
+                initial="hide"
+                animate="show"
+                className={classes.heading}
+              >
+                Search
+              </motion.h1>
+            )}
+            {shopMode && (
+              <motion.h1
+                variants={headerTitle}
+                initial="hide"
+                animate="show"
+                className={classes.heading}
+              >
+                Shopping Cart
+              </motion.h1>
+            )}
             {!shopMode ? (
               <Link className={classes.shoppingLink} to="/shopping-cart">
-                {itemsQnt != 0 && <p>{itemsQnt}</p>}
+                {itemsQnt != 0 && (
+                  <motion.p
+                    key={itemsQnt}
+                    variants={shopQuant}
+                    initial="hide"
+                    animate="show"
+                  >
+                    {itemsQnt}
+                  </motion.p>
+                )}
                 <ShoppingCart />
               </Link>
             ) : (
