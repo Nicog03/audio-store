@@ -61,6 +61,7 @@ interface filterType {
   sortBy: string;
   minPrice: string;
   maxPrice: string;
+  numOfFilter: number;
 }
 
 interface ContextType {
@@ -73,7 +74,13 @@ interface ContextType {
 export const Context = createContext<ContextType>({
   context: [],
   setContext: () => null,
-  filter: { category: "", sortBy: "", minPrice: "", maxPrice: "" },
+  filter: {
+    category: "",
+    sortBy: "",
+    minPrice: "",
+    maxPrice: "",
+    numOfFilter: 0,
+  },
   setFilter: () => null,
 });
 
@@ -84,6 +91,7 @@ function App() {
     sortBy: "",
     minPrice: "",
     maxPrice: "",
+    numOfFilter: 0,
   });
 
   return (
