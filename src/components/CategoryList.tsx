@@ -23,11 +23,13 @@ const splideOptions = {
 interface propTypes {
   isNavList?: boolean;
   inputChangeAction?: React.ChangeEventHandler<HTMLInputElement>;
+  categoryValue?: string;
 }
 
 const CategoryList: React.FC<propTypes> = ({
   isNavList = true,
   inputChangeAction,
+  categoryValue,
 }) => {
   return (
     <Splide options={splideOptions} aria-label="list of items categories">
@@ -52,6 +54,7 @@ const CategoryList: React.FC<propTypes> = ({
                   id={category}
                   name="product_category"
                   value={category}
+                  {...(categoryValue === category && { checked: true })}
                 />
                 <label
                   className={`${classes.radioLabel} ${classes.listItem} ${classes.link}`}
