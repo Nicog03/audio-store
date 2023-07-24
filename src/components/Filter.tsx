@@ -1,7 +1,7 @@
 import classes from "./Filter.module.css";
 import CategoryList from "./CategoryList";
 import TextInput from "./TextInput";
-import { X } from "react-feather";
+import { X, RotateCcw } from "react-feather";
 import Button from "./Button";
 import SortOptions from "./SortOptions";
 import { useState, useContext } from "react";
@@ -52,18 +52,19 @@ const Filter: React.FC<PropType> = ({
 
   const changeFilterOptions = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const FilterArray = [category, sortBy, minPrice, maxPrice];
     let numOfFilter = 0;
+    const FilterArray = [category, sortBy, minPrice, maxPrice];
 
+    FilterArray[0] != "" ? numOfFilter++ : null;
     FilterArray[1] != "" ? numOfFilter++ : null;
-    FilterArray[2] != "" ? numOfFilter++ : null;
-    FilterArray[3] != "" || FilterArray[4] != "" ? numOfFilter++ : null;
+    FilterArray[2].trim() || FilterArray[3].trim() ? numOfFilter++ : null;
 
     setFilter({
       category,
       sortBy,
       minPrice,
       maxPrice,
+      numOfFilter,
     });
 
     setFilterQnt(numOfFilter);
@@ -71,30 +72,57 @@ const Filter: React.FC<PropType> = ({
     setOpen(false);
   };
 
+  const resetFilter = () => {
+    setCategory("");
+    setSortBy("");
+    setMinPrice("");
+    setMaxPrice("");
+    setFilterQnt(0);
+    changeData({ category: "", sortBy: "", minPrice: "", maxPrice: "" });
+    setFilter({
+      category: "",
+      sortBy: "",
+      minPrice: "",
+      maxPrice: "",
+      numOfFilter: 0,
+    });
+  };
+
   return (
     <form onSubmit={changeFilterOptions} className={classes.container}>
       <div className={classes.mainHeadingContainer}>
         <h2>Filter</h2>
-        <button
-          type="button"
-          onClick={XClickAction}
-          className={classes.closeButton}
-        >
-          <X />
-        </button>
+        <div className={classes.buttonContainer}>
+          <button
+            type="button"
+            onClick={resetFilter}
+            className={classes.resetButton}
+          >
+            <RotateCcw height={"1.2em"} width={"1.2em"} />
+          </button>
+          <button
+            type="button"
+            onClick={XClickAction}
+            className={classes.closeButton}
+          >
+            <X />
+          </button>
+        </div>
       </div>
-      <section>
-        <h3>Category</h3>
-        <CategoryList
-          isNavList={false}
-          inputChangeAction={changeCategoryHandler}
-          categoryValue={category}
-        />
-      </section>
-      <section>
-        <h3>Sort By</h3>
-        <SortOptions changeAction={changeSortByHandler} current={sortBy} />
-      </section>
+      <div className={classes.sectionContainer}>
+        <section>
+          <h3>Category</h3>
+          <CategoryList
+            isNavList={false}
+            inputChangeAction={changeCategoryHandler}
+            categoryValue={category}
+          />
+        </section>
+        <section>
+          <h3>Sort By</h3>
+          <SortOptions changeAction={changeSortByHandler} current={sortBy} />
+        </section>
+      </div>
       <section>
         <h3>Price Range</h3>
         <div className={classes.textInputContainer}>
