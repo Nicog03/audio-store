@@ -63,39 +63,37 @@ const MenuButton = () => {
       </button>
       {navBarOpen && (
         <>
-          <motion.div
+          <motion.ul
             variants={linksContainer}
             initial="hidden"
             animate="show"
             className={classes.linksContainer}
           >
-            <ul>
+            <motion.li variants={link}>
+              <Link to="/headphones">
+                <Home height={"1.2rem"} width={"1.2rem"} /> Home
+              </Link>{" "}
+            </motion.li>
+            <motion.li variants={link}>
+              <Link to="/all-products">
+                <Headphones height={"1.2rem"} width={"1.2rem"} />
+                All products
+              </Link>{" "}
+            </motion.li>
+            <motion.li variants={link}>
+              <Link to="/shopping-cart">
+                <ShoppingCart height={"1.2rem"} width={"1.2rem"} />
+                Cart
+              </Link>
+            </motion.li>
+            {isLoggedIn && (
               <motion.li variants={link}>
-                <Link to="/headphones">
-                  <Home height={"1.2rem"} width={"1.2rem"} /> Home
-                </Link>{" "}
+                <button className={classes.signOutButton} onClick={logOut}>
+                  Sign Out
+                </button>
               </motion.li>
-              <motion.li variants={link}>
-                <Link to="/all-products">
-                  <Headphones height={"1.2rem"} width={"1.2rem"} />
-                  All products
-                </Link>{" "}
-              </motion.li>
-              <motion.li variants={link}>
-                <Link to="/shopping-cart">
-                  <ShoppingCart height={"1.2rem"} width={"1.2rem"} />
-                  Cart
-                </Link>
-              </motion.li>
-              {isLoggedIn && (
-                <motion.li variants={link}>
-                  <button className={classes.signOutButton} onClick={logOut}>
-                    Sign Out
-                  </button>
-                </motion.li>
-              )}
-            </ul>
-          </motion.div>
+            )}
+          </motion.ul>
           <div className={classes.background} onClick={toggleNavBar}></div>
         </>
       )}
