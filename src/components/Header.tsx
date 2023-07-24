@@ -112,11 +112,15 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
                   }}
                 ></button>
                 {profileOpen && (
-                  <div className={classes.profileOptionsContainer}>
+                  <motion.div
+                    initial={{ transform: "translateX(-2em)", opacity: 0 }}
+                    animate={{ transform: "translateX(0)", opacity: 1 }}
+                    className={classes.profileOptionsContainer}
+                  >
                     <button onClick={logOut}>
                       Sign Out <LogOut height={"1rem"} />
                     </button>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             ) : (
