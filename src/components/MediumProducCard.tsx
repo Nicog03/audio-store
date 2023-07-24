@@ -24,7 +24,7 @@ const MediumProductCard: React.FC<PropType> = ({
           <img src={image} alt="image of a headphone" />
           <div className={classes.info}>
             <h3>{productInfo.name}</h3>
-            <p>USD {productInfo.price}</p>
+            <p>USD {productInfo.price.replace("$", "")}</p>
           </div>
           {displayReview && (
             <div className={classes.reviewSection}>

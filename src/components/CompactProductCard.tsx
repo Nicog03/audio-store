@@ -56,7 +56,9 @@ const CompactProductCard: React.FC<PropType> = ({
       <div className={classes.rightSide}>
         <div className={classes.productInfoContainer}>
           <p className={classes.productTitle}>{productInfo.name}</p>
-          <p className={classes.price}>USD {productInfo.price}</p>
+          <p className={classes.price}>
+            USD {productInfo.price.replace("$", "")}
+          </p>
         </div>
         {!isOnShoppingCart ? (
           <div className={classes.bottomContainer}>
