@@ -2,14 +2,15 @@ import Header from "../components/Header";
 import FilterButton from "../components/FilterButton";
 import classes from "./AllProductsPage.module.css";
 import MediumProductCard from "../components/MediumProducCard";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ProductType } from "./HomePage";
 import { BottomSheet } from "react-spring-bottom-sheet-updated";
 import Filter from "../components/Filter";
 import "react-spring-bottom-sheet-updated/dist/style.css";
 import { useRouteLoaderData } from "react-router-dom";
-
+import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
+import { Context } from "../App";
 
 interface FilterType {
   category: string;
@@ -21,12 +22,16 @@ interface FilterType {
 const AllProductsPage = () => {
   const data = useRouteLoaderData("root-path") as ProductType[];
 
+  const { filter } = useContext(Context);
+
+  const isMediumScreen = useMediaQuery({ query: "(min-width: 768px" });
+
   const [open, setOpen] = useState(false);
   const [filterData, setFilterData] = useState<FilterType | null>(null);
-  const [filterQnt, setFilterQnt] = useState(0);
+  const [filterQnt, setFilterQnt] = useState(filter.numOfFilter);
 
   const openBottomSheetHandler = () => {
-    setOpen(true);
+    setOpen((prev) => !prev);
   };
 
   const closeBottomSheetHandler = () => {
@@ -226,39 +231,59 @@ const AllProductsPage = () => {
           clickAction={openBottomSheetHandler}
           filtersApplied={filterQnt}
         />
+        {isMediumScreen && open && (
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <Filter
+              XClickAction={closeBottomSheetHandler}
+              changeData={setFilterData}
+              setFilterQnt={setFilterQnt}
+              setOpen={setOpen}
+            />
+          </motion.div>
+        )}
       </div>
       <motion.div
+        layout="position"
         variants={products}
         initial="hidden"
         animate="show"
         className={classes.productsSection}
       >
-        {!filteredArray
-          ? data.map((product) => (
-              <motion.li key={product.created_at} variants={productCard}>
-                <MediumProductCard productInfo={product} displayReview={true} />
-              </motion.li>
-            ))
-          : filteredArray.map((product) => (
-              <MediumProductCard
-                key={product.created_at}
-                productInfo={product}
-                displayReview={true}
-              />
-            ))}
+        {!filteredArray ? (
+          data.map((product) => (
+            <motion.li key={product.created_at} variants={productCard}>
+              <MediumProductCard productInfo={product} displayReview={true} />
+            </motion.li>
+          ))
+        ) : filteredArray.length ? (
+          filteredArray.map((product) => (
+            <MediumProductCard
+              key={product.created_at}
+              productInfo={product}
+              displayReview={true}
+            />
+          ))
+        ) : (
+          <MediumProductCard />
+        )}
       </motion.div>
-      <BottomSheet
-        open={open}
-        onDismiss={() => setOpen(false)}
-        snapPoints={({ minHeight }) => minHeight}
-      >
-        <Filter
-          XClickAction={closeBottomSheetHandler}
-          changeData={setFilterData}
-          setFilterQnt={setFilterQnt}
-          setOpen={setOpen}
-        />
-      </BottomSheet>
+      {!isMediumScreen && (
+        <BottomSheet
+          open={open}
+          onDismiss={() => setOpen(false)}
+          snapPoints={({ minHeight }) => minHeight}
+        >
+          <Filter
+            XClickAction={closeBottomSheetHandler}
+            changeData={setFilterData}
+            setFilterQnt={setFilterQnt}
+            setOpen={setOpen}
+          />
+        </BottomSheet>
+      )}
     </div>
   );
 };
