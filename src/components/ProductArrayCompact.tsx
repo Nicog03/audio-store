@@ -35,7 +35,7 @@ const ProductArrayCompact: React.FC<PropType> = ({
       <div className={classes.container}>
         {products.map((product) =>
           isOnShoppingCart ? (
-            <motion.li key={product.created_at} variants={itemA}>
+            <motion.li key={product.id} variants={itemA}>
               <CompactProductCard
                 updateStore={updateStore}
                 productInfo={product}
