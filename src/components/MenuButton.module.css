@@ -11,7 +11,7 @@
 
 .linksContainer {
   position: absolute;
-  transform: translateY(10%);
+  top: 2.2em;
   display: flex;
   gap: 0.3rem;
   flex-direction: column;
@@ -43,6 +43,7 @@
   border: none;
   color: white;
   padding: 0.3rem;
+  width: 100%;
 }
 
 .background {
