@@ -16,7 +16,6 @@ const splideOptions = {
   autoHeight: true,
   autoWidth: true,
   gap: "0.688em",
-  drag: "free",
   arrows: false,
   pagination: false,
 };
