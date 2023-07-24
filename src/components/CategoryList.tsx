@@ -15,7 +15,8 @@ import classes from "./CategoryList.module.css";
 const splideOptions = {
   autoHeight: true,
   autoWidth: true,
-  snap: false,
+  gap: "0.688em",
+  drag: "free",
   arrows: false,
   pagination: false,
 };
@@ -31,43 +32,39 @@ const CategoryList: React.FC<propTypes> = ({
 }) => {
   return (
     <Splide options={splideOptions} aria-label="list of items categories">
-      <div className={classes.categoriesList}>
-        {categoriesArray.map((category) => (
-          <SplideSlide key={category} className={classes}>
-            <div className={classes.listItem}>
-              {isNavList ? (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? `${classes.active} ${classes.link}`
-                      : classes.link
-                  }
-                  to={`/${category.toLowerCase()}`}
+      {categoriesArray.map((category) => (
+        <SplideSlide key={category}>
+          <div className={classes.listItem}>
+            {isNavList ? (
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? `${classes.active} ${classes.link}` : classes.link
+                }
+                to={`/${category.toLowerCase()}`}
+              >
+                {category}
+              </NavLink>
+            ) : (
+              <div className={classes.radioContainer}>
+                <input
+                  onChange={inputChangeAction}
+                  className={classes.radioInput}
+                  type="radio"
+                  id={category}
+                  name="product_category"
+                  value={category}
+                />
+                <label
+                  className={`${classes.radioLabel} ${classes.listItem} ${classes.link}`}
+                  htmlFor={category}
                 >
                   {category}
-                </NavLink>
-              ) : (
-                <div className={classes.radioContainer}>
-                  <input
-                    onChange={inputChangeAction}
-                    className={classes.radioInput}
-                    type="radio"
-                    id={category}
-                    name="product_category"
-                    value={category}
-                  />
-                  <label
-                    className={`${classes.radioLabel} ${classes.listItem} ${classes.link}`}
-                    htmlFor={category}
-                  >
-                    {category}
-                  </label>
-                </div>
-              )}
-            </div>
-          </SplideSlide>
-        ))}
-      </div>
+                </label>
+              </div>
+            )}
+          </div>
+        </SplideSlide>
+      ))}
     </Splide>
   );
 };
