@@ -26,7 +26,9 @@ const SortOptions: React.FC<PropType> = ({ changeAction, current }) => {
             name="sort_by"
             value={option.toLowerCase()}
             id={option.toLowerCase()}
-            {...(current === option.toLowerCase() && { checked: true })}
+            {...(current === option.toLowerCase()
+              ? { checked: true }
+              : { checked: false })}
           />
           <label className={classes.label} htmlFor={option.toLowerCase()}>
             {option}

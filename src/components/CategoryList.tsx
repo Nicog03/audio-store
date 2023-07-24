@@ -54,7 +54,9 @@ const CategoryList: React.FC<propTypes> = ({
                   id={category}
                   name="product_category"
                   value={category}
-                  {...(categoryValue === category && { checked: true })}
+                  {...(categoryValue === category
+                    ? { checked: true }
+                    : { checked: false })}
                 />
                 <label
                   className={`${classes.radioLabel} ${classes.listItem} ${classes.link}`}
