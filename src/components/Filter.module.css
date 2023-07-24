@@ -10,7 +10,7 @@
 .sectionContainer {
   display: flex;
   flex-direction: column;
-  gap: 2.188em;
+  gap: 2.188rem;
 }
 
 .container section {
@@ -32,7 +32,7 @@
 
 .buttonContainer {
   display: flex;
-  gap: 1em;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -55,7 +55,6 @@
 
 @media only screen and (min-width: 768px) {
   .container {
-    font-size: 14px;
     border: 1px solid var(--color-grey);
     border-radius: 1.875rem;
   }
