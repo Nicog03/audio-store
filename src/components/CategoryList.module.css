@@ -1,14 +1,14 @@
 .listItem {
   color: var(--color-dark-grey);
-  padding-block: 0.15em;
-  gap: 0.688em;
+  padding-block: 0.15rem;
+  gap: 0.688rem;
 }
 
 .link {
   color: var(--color-dark-grey);
-  padding: 0.156em 0.938em;
-  border-radius: 1.875em;
-  font-size: 0.875em;
+  padding: 0.156rem 0.938rem;
+  border-radius: 1.875rem;
+  font-size: 0.875rem;
 }
 
 .active,
