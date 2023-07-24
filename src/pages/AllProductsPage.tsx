@@ -182,18 +182,15 @@ const AllProductsPage = () => {
             +product.price.replace("$", "") > +filterData.minPrice &&
             +product.price.replace("$", "") < +filterData.maxPrice
         );
-      }
-
-      if (filterData.minPrice) {
+      } else if (filterData.minPrice) {
         filteredArray = data.filter(
           (product) => +product.price.replace("$", "") > +filterData.minPrice
         );
-      }
-
-      if (filterData.maxPrice) {
+      } else if (filterData.maxPrice) {
         filteredArray = data.filter(
           (product) => +product.price.replace("$", "") < +filterData.maxPrice
         );
+        return;
       }
     }
   }
