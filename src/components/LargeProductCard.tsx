@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import classes from "./LargeProductCard.module.css";
 import { ArrowRight, Headphones } from "react-feather";
 import { ProductType } from "../pages/HomePage";
+import headset from "../assets/png/headset.png";
 
 import { motion } from "framer-motion";
 
@@ -25,7 +26,7 @@ const LargeProductCard: React.FC<propType> = ({ productInfo }) => {
                   Shop now <ArrowRight />
                 </Link>
               </div>
-              <img src="./src/assets/png/headset.png" alt="" />
+              <img src={headset} alt="image of a headset" />
             </>
           ) : (
             <div className={classes.noProductCard}>
