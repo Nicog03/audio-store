@@ -40,4 +40,8 @@
     max-width: 55em;
     margin-inline: auto;
   }
+
+  .productsSection {
+    border-radius: 1.875em;
+  }
 }
