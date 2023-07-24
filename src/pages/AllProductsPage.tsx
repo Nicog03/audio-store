@@ -238,12 +238,8 @@ const AllProductsPage = () => {
       >
         {!filteredArray
           ? data.map((product) => (
-              <motion.li variants={productCard}>
-                <MediumProductCard
-                  key={product.created_at}
-                  productInfo={product}
-                  displayReview={true}
-                />
+              <motion.li key={product.created_at} variants={productCard}>
+                <MediumProductCard productInfo={product} displayReview={true} />
               </motion.li>
             ))
           : filteredArray.map((product) => (
