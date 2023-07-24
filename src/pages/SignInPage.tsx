@@ -6,6 +6,10 @@ import { BeatLoader } from "react-spinners";
 
 import { auth, facebookSignIn, googleSignIn } from "../firebase";
 
+import googleLogo from "../assets/svg/google-logo.svg";
+import appleLogo from "../assets/svg/apple-logo.svg";
+import facebookLogo from "../assets/svg/faceboo-logo.svg";
+
 import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -194,23 +198,17 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
             <ul className={classes.socialMediaList}>
               <li>
                 <button>
-                  <img src="./src/assets/svg/apple-logo.svg" alt="apple logo" />
+                  <img src={appleLogo} alt="apple logo" />
                 </button>
               </li>
               <li>
                 <button onClick={signInWithFacebook}>
-                  <img
-                    src="./src/assets/svg/faceboo-logo.svg"
-                    alt="facebook logo"
-                  />
+                  <img src={facebookLogo} alt="facebook logo" />
                 </button>
               </li>
               <li>
                 <button onClick={signInWithGoogle}>
-                  <img
-                    src="./src/assets/svg/google-logo.svg"
-                    alt="google logo"
-                  />
+                  <img src={googleLogo} alt="google logo" />
                 </button>
               </li>
             </ul>
