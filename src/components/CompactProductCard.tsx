@@ -23,13 +23,14 @@ const CompactProductCard: React.FC<PropType> = ({
 }) => {
   const { setContext } = useContext(Context);
 
-  if (productInfo.quantity === 0) {
-    setContext((current) => current.filter((product) => product.quantity != 0));
-  }
-
   const reduceQuantityHandler = () => {
     productInfo.quantity!--;
     updateStore!();
+    if (productInfo.quantity === 0) {
+      setContext((current) =>
+        current.filter((product) => product.quantity != 0)
+      );
+    }
   };
 
   const increaseQuantityHandler = () => {
