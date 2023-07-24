@@ -7,6 +7,12 @@
   padding: 1.5rem;
 }
 
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.188em;
+}
+
 .container section {
   display: flex;
   flex-direction: column;
@@ -24,14 +30,39 @@
   justify-content: space-between;
 }
 
-.closeButton {
+.buttonContainer {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.closeButton,
+.resetButton {
   display: flex;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
+.resetButton {
+  color: var(--color-dark-grey);
+}
+
 .textInputContainer {
   display: flex;
   gap: 1.063rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    font-size: 14px;
+    border: 1px solid var(--color-grey);
+    border-radius: 1.875rem;
+  }
+}
+
+@media only screen and (min-width: 1098px) {
+  .sectionContainer {
+    flex-direction: row;
+  }
 }
