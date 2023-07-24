@@ -126,14 +126,20 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
   return (
     <div className={classes.container}>
       <div className={classes.backGroundImage}></div>
-      <div className={classes.innerContainer}>
+      <div
+        className={`${classes.innerContainer} ${
+          resetPasswordMode ? classes.resetModeInnerContainer : ""
+        }`}
+      >
         {!resetPasswordMode && (
           <hgroup className={classes.header}>
             <h1 className={classes.h1}>Audio</h1>
             <p className={classes.h1}>It's modular and designed to last</p>
           </hgroup>
         )}
-        {resetPasswordMode && <h1>Reset your password</h1>}
+        {resetPasswordMode && (
+          <h1 className={classes.resetHeader}>Reset your password</h1>
+        )}
         <div className={classes.bottomSection}>
           <form onSubmit={authenticateUser} action="" className={classes.form}>
             {resetMessageSent && (
@@ -194,7 +200,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
               {loading ? <BeatLoader color={"white"} size={10} /> : buttonText}
             </button>
           </form>
-          {!signInMode && !resetPasswordMode && (
+          {!resetPasswordMode && (
             <ul className={classes.socialMediaList}>
               <li>
                 <button>
