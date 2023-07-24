@@ -10,6 +10,7 @@ interface propTypes {
     | React.ChangeEventHandler<HTMLElement>
     | React.ChangeEventHandler<HTMLInputElement>;
   type: "password" | "text";
+  value?: string;
 }
 
 const TextInput: React.FC<propTypes> = ({
@@ -18,6 +19,7 @@ const TextInput: React.FC<propTypes> = ({
   focusAction,
   changeAction,
   type,
+  value,
 }) => {
   return (
     <div className={classes.container}>
@@ -28,6 +30,7 @@ const TextInput: React.FC<propTypes> = ({
         placeholder=" "
         type={type}
         onChange={changeAction}
+        value={value}
       />
       <div className={classes.innerContainer}>
         {icon && <div className={classes.icon}>{icon}</div>}
