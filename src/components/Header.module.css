@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.438em;
-  padding-inline: 1.5em;
-  margin-block-end: 0.938em;
+  height: 3.438rem;
+  padding-inline: 1.5rem;
+  margin-block-end: 0.938rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,12 +20,12 @@
 }
 
 .heading {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .shoppingLink {
   display: flex;
-  gap: 0.2em;
+  gap: 0.2rem;
   align-items: center;
   color: black;
 }
@@ -33,12 +33,12 @@
 .shoppingLink p {
   color: white;
   background-color: var(--color-green);
-  height: 1.2em;
-  width: 1.2em;
+  height: 1.2rem;
+  width: 1.2rem;
   text-align: center;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   border-radius: 50%;
-  line-height: 1.2em;
+  line-height: 1.2rem;
 }
 
 .trashButton {
@@ -66,10 +66,10 @@
 }
 
 .signInLink {
-  padding: 0.5em;
+  padding: 0.5rem;
   background-color: var(--color-green);
   color: var(--color-white);
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
 }
 
 .profileSection {
@@ -80,18 +80,18 @@
   white-space: nowrap;
   position: absolute;
   background-color: var(--color-light-grey-1);
-  padding: 0.5em;
+  padding: 0.5rem;
   border: var(--color-black) solid 1px;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   right: 0;
-  bottom: -120%;
+  bottom: -2.5rem;
 }
 
 .profileOptionsContainer button {
   background-color: transparent;
   border: none;
   display: flex;
-  gap: 0.3em;
+  gap: 0.3rem;
   align-items: center;
 }
 
@@ -114,11 +114,11 @@
 
   .navList {
     display: flex;
-    gap: 1em;
+    gap: 1rem;
   }
   .header {
     width: 70vw;
-    max-width: 60em;
+    max-width: 60rem;
     margin-inline: auto;
   }
 }
