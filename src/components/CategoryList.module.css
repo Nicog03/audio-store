@@ -5,7 +5,6 @@
 }
 
 .link {
-  width: fit-content;
   color: var(--color-dark-grey);
   padding: 0.156em 0.938em;
   border-radius: 1.875em;
