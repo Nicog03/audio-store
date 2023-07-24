@@ -11,9 +11,10 @@ const options = [
 
 interface PropType {
   changeAction: React.ChangeEventHandler<HTMLInputElement>;
+  current?: string;
 }
 
-const SortOptions: React.FC<PropType> = ({ changeAction }) => {
+const SortOptions: React.FC<PropType> = ({ changeAction, current }) => {
   return (
     <div className={classes.container}>
       {options.map((option) => (
@@ -25,6 +26,7 @@ const SortOptions: React.FC<PropType> = ({ changeAction }) => {
             name="sort_by"
             value={option.toLowerCase()}
             id={option.toLowerCase()}
+            {...(current === option.toLowerCase() && { checked: true })}
           />
           <label className={classes.label} htmlFor={option.toLowerCase()}>
             {option}
