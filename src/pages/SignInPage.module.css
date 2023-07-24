@@ -184,7 +184,7 @@
     flex: 1;
     background-image: linear-gradient(transparent, var(--color-black)),
       linear-gradient(var(--color-green), transparent),
-      url("./src/assets/png/login-bg.png");
+      url("../assets/png/login-bg.png");
     background-position: 50% 50%;
     background-size: cover;
   }
