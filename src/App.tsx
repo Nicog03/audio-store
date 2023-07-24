@@ -56,20 +56,38 @@ const router = createBrowserRouter([
   },
 ]);
 
+interface filterType {
+  category: string;
+  sortBy: string;
+  minPrice: string;
+  maxPrice: string;
+}
+
 interface ContextType {
   context: ProductType[];
   setContext: React.Dispatch<SetStateAction<ProductType[]>>;
+  filter: filterType;
+  setFilter: React.Dispatch<SetStateAction<filterType>>;
 }
 
 export const Context = createContext<ContextType>({
   context: [],
   setContext: () => null,
+  filter: { category: "", sortBy: "", minPrice: "", maxPrice: "" },
+  setFilter: () => null,
 });
 
 function App() {
   const [context, setContext] = useState<ProductType[]>([]);
+  const [filter, setFilter] = useState<filterType>({
+    category: "",
+    sortBy: "",
+    minPrice: "",
+    maxPrice: "",
+  });
+
   return (
-    <Context.Provider value={{ context, setContext }}>
+    <Context.Provider value={{ context, setContext, filter, setFilter }}>
       <RouterProvider router={router} />
     </Context.Provider>
   );
