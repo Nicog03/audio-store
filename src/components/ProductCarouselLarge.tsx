@@ -6,7 +6,6 @@ import { ProductType } from "../pages/HomePage";
 const splideOptions = {
   autoWidth: true,
   gap: "0.938rem",
-  snap: false,
   arrows: false,
   pagination: false,
 };
