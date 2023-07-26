@@ -73,8 +73,8 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
         });
     } else if (mode === "signup") {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((userCrendentials) => {
-          console.log(userCrendentials);
+        .then(() => {
+          setLoading(false);
         })
         .catch((error: Error) => {
           error.message.includes("already-in-use")
@@ -101,6 +101,7 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
   };
 
   const signInWithGoogle = () => {
+    setLoading(true);
     googleSignIn()
       .then((response) => {
         console.log(response);
@@ -109,7 +110,10 @@ const SignInPage: React.FC<propTypes> = ({ mode }) => {
         localStorage.setItem("name", response.user.displayName!);
         localStorage.setItem("user-photo", response.user.photoURL!);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   const signInWithFacebook = () => {
