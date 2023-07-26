@@ -1,4 +1,5 @@
-import HomePage, { ProductType } from "./pages/HomePage.tsx";
+import HomePage from "./pages/HomePage.tsx";
+import { ProductType } from "./interfaces/product.interface.ts";
 import SignInPage from "./pages/SignInPage.tsx";
 import AllProductsPage from "./pages/AllProductsPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
