@@ -14,5 +14,6 @@
 .two {
   background-image: url(/src/assets/png/headset-product.png);
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: 50% 50%;
 }
