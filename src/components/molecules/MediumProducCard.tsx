@@ -1,7 +1,7 @@
 import classes from "./MediumProductCard.module.css";
-import { ProductType } from "../pages/HomePage";
-import StarIcon from "./StarIcon";
-import image from "../assets/png/headset.png";
+import { ProductType } from "../../interfaces/product.interface";
+import StarIcon from "../atoms/StarIcon";
+import image from "../../assets/png/headset.png";
 import { Link } from "react-router-dom";
 import { Headphones } from "react-feather";
 

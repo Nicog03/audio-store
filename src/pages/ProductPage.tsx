@@ -1,13 +1,13 @@
-import Header from "../components/Header";
+import Header from "../components/organisms/Header";
 import { Link, useParams, useRouteLoaderData } from "react-router-dom";
-import ProductCarouselMedium from "../components/ProductCarouselMedium";
-import { ProductType } from "./HomePage";
-import Button from "../components/Button";
-import TabBarDescription from "../components/TabBarDescription";
-import ImageCarousel from "../components/ImageCarousel";
+import ProductCarouselMedium from "../components/organisms/ProductCarouselMedium";
+import { ProductType } from "../interfaces/product.interface";
+import Button from "../components/atoms/Button";
+import TabBarDescription from "../components/molecules/TabBarDescription";
+import ImageCarousel from "../components/molecules/ImageCarousel";
 import classes from "./ProductPage.module.css";
-import ReviewList from "../components/ReviewList";
-import Features from "../components/Features";
+import ReviewList from "../components/organisms/ReviewList";
+import Features from "../components/atoms/Features";
 import { Context } from "../App";
 import { useContext, useState } from "react";
 
@@ -36,11 +36,11 @@ const ProductPage: React.FC<PropType> = ({ mode }) => {
   const { context, setContext } = useContext(Context);
 
   const pushProductToCartHandler = () => {
-    context.find((product) => product.id === productData!.id)
+    context.find((product: ProductType) => product.id === productData!.id)
       ? (productData!.quantity! += 1)
       : (productData!.quantity = 1);
     productData!.quantity === 1
-      ? setContext((prevArray) => [...prevArray, productData!])
+      ? setContext((prevArray: ProductType[]) => [...prevArray, productData!])
       : reloadPage();
   };
 

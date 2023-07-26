@@ -1,5 +1,5 @@
 import classes from "./ProfileIcon.module.css";
-import profileImage from "../assets/png/blank-profile-picture.png";
+import profileImage from "../../assets/png/blank-profile-picture.png";
 
 interface PropTypes {
   size: "small" | "large";

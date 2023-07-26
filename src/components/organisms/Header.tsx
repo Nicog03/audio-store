@@ -3,19 +3,20 @@ import { ChevronLeft, Trash2, ShoppingCart, LogOut } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 
-import Logo from "./Logo";
-import MenuButton from "./MenuButton";
+import Logo from "../atoms/Logo";
+import MenuButton from "../atoms/MenuButton";
 
-import blankProfilePic from "../assets/png/blank-profile-picture.png";
+import blankProfilePic from "../../assets/png/blank-profile-picture.png";
 
-import { Context } from "../App";
+import { Context } from "../../App";
 
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
 import classes from "./Header.module.css";
 
 import { motion } from "framer-motion";
+import { ProductType } from "../../interfaces/product.interface";
 
 interface PropType {
   mode?: "search" | "default" | "shop" | "product-page";
@@ -32,7 +33,7 @@ const Header: React.FC<PropType> = ({ mode = "default" }) => {
   const userPicture = localStorage.getItem("user-photo");
 
   let itemsQnt = 0;
-  context.map((product) => (itemsQnt += product.quantity!));
+  context.map((product: ProductType) => (itemsQnt += product.quantity!));
 
   const searchMode = mode === "search";
   const shopMode = mode === "shop";

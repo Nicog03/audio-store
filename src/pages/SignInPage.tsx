@@ -16,7 +16,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import TextInput from "../components/TextInput";
+import TextInput from "../components/atoms/TextInput";
 
 interface propTypes {
   mode: "signin" | "signup" | "password-reset";

@@ -1,21 +1,22 @@
 import classes from "./ShoppingCartPage.module.css";
 
-import Header from "../components/Header";
-import Button from "../components/Button";
+import Header from "../components/organisms/Header";
+import Button from "../components/atoms/Button";
 import { Context } from "../App";
 import { useContext, useState } from "react";
-import ProductArrayCompact from "../components/ProductArrayCompact";
+import ProductArrayCompact from "../components/organisms/ProductArrayCompact";
+import { ProductType } from "../interfaces/product.interface";
 
 const ShoppingCartPage = () => {
   const { context } = useContext(Context);
   const [, setValue] = useState(0);
 
   let totalItems = 0;
-  context.map((product) => (totalItems += product.quantity!));
+  context.map((product: ProductType) => (totalItems += product.quantity!));
 
   let totalPrice = 0;
   context.map(
-    (product) =>
+    (product: ProductType) =>
       (totalPrice += +product.price.replace("$", "") * product.quantity!)
   );
 

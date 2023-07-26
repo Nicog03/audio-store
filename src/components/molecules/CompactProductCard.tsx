@@ -2,11 +2,11 @@ import classes from "./CompactProductCard.module.css";
 
 import { Minus, Plus, MoreVertical, Trash2 } from "react-feather";
 
-import StarIcon from "./StarIcon";
-import { ProductType } from "../pages/HomePage";
+import StarIcon from "../atoms/StarIcon";
+import { ProductType } from "../../interfaces/product.interface";
 import { useContext } from "react";
-import { Context } from "../App";
-import productImage from "../assets/png/headset.png";
+import { Context } from "../../App";
+import productImage from "../../assets/png/headset.png";
 
 import { motion } from "framer-motion";
 
@@ -27,7 +27,7 @@ const CompactProductCard: React.FC<PropType> = ({
     productInfo.quantity!--;
     updateStore!();
     if (productInfo.quantity === 0) {
-      setContext((current) =>
+      setContext((current: ProductType[]) =>
         current.filter((product) => product.quantity != 0)
       );
     }
@@ -39,7 +39,7 @@ const CompactProductCard: React.FC<PropType> = ({
   };
 
   const removeProductFromCartHandler = () => {
-    setContext((current) =>
+    setContext((current: ProductType[]) =>
       current.filter((product) => product.id != productInfo.id)
     );
   };

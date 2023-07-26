@@ -1,11 +1,11 @@
 import classes from "./Filter.module.css";
-import CategoryList from "./CategoryList";
-import TextInput from "./TextInput";
+import CategoryList from "../molecules/CategoryList";
+import TextInput from "../atoms/TextInput";
 import { X, RotateCcw } from "react-feather";
-import Button from "./Button";
-import SortOptions from "./SortOptions";
+import Button from "../atoms/Button";
+import SortOptions from "../molecules/SortOptions";
 import { useState, useContext } from "react";
-import { Context } from "../App";
+import { Context } from "../../App";
 
 interface FilterType {
   category: string;

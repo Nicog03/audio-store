@@ -1,8 +1,8 @@
-import MediumProductCard from "./MediumProducCard";
+import MediumProductCard from "../molecules/MediumProducCard";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { ProductType } from "../pages/HomePage";
+import { ProductType } from "../../interfaces/product.interface";
 
 const splideOptions = {
   autoWidth: true,

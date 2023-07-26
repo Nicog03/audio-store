@@ -1,7 +1,7 @@
-import TextInput from "../components/TextInput";
-import CategoryList from "../components/CategoryList";
-import ProductCarouselLarge from "../components/ProductCarouselLarge";
-import ProductCarouselMedium from "../components/ProductCarouselMedium";
+import TextInput from "../components/atoms/TextInput";
+import CategoryList from "../components/molecules/CategoryList";
+import ProductCarouselLarge from "../components/organisms/ProductCarouselLarge";
+import ProductCarouselMedium from "../components/organisms/ProductCarouselMedium";
 import { Search } from "react-feather";
 import {
   Link,
@@ -11,34 +11,12 @@ import {
 } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import { useState, useEffect } from "react";
-import ProductArrayCompact from "../components/ProductArrayCompact";
-import Header from "../components/Header";
+import ProductArrayCompact from "../components/organisms/ProductArrayCompact";
+import Header from "../components/organisms/Header";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-
+import { ProductType } from "../interfaces/product.interface";
 import { motion } from "framer-motion";
-
-export interface ReviewType {
-  user: string;
-  description: string;
-  rating: number;
-  date: string;
-  id: number;
-}
-
-export interface ProductType {
-  imageUrl: string;
-
-  rating: number;
-  price: string;
-  name: string;
-  description: string;
-  category: string;
-  created_at: string;
-  reviews: ReviewType[];
-  id: number;
-  quantity?: number;
-}
 
 interface PropTypes {
   mode?: "search";

@@ -1,11 +1,11 @@
-import Header from "../components/Header";
-import FilterButton from "../components/FilterButton";
+import Header from "../components/organisms/Header";
+import FilterButton from "../components/atoms/FilterButton";
 import classes from "./AllProductsPage.module.css";
-import MediumProductCard from "../components/MediumProducCard";
+import MediumProductCard from "../components/molecules/MediumProducCard";
 import { useContext, useState } from "react";
-import { ProductType } from "./HomePage";
+import { ProductType } from "../interfaces/product.interface";
 import { BottomSheet } from "react-spring-bottom-sheet-updated";
-import Filter from "../components/Filter";
+import Filter from "../components/organisms/Filter";
 import "react-spring-bottom-sheet-updated/dist/style.css";
 import { useRouteLoaderData } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";

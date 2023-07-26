@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Headphones, Home, ShoppingCart, X } from "react-feather";
 
-import Menu from "../assets/svg/menu.svg";
+import Menu from "../../assets/svg/menu.svg";
 
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 
 import { motion } from "framer-motion";
 

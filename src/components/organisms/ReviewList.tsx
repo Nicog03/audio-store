@@ -1,6 +1,6 @@
 import classes from "./ReviewList.module.css";
-import Review from "./Review";
-import { ReviewType } from "../pages/HomePage";
+import Review from "../molecules/Review";
+import { ReviewType } from "../../interfaces/review.interface";
 
 interface PropTypes {
   reviews: ReviewType[];

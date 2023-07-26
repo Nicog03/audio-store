@@ -1,7 +1,7 @@
 import classes from "./Review.module.css";
-import ProfileIcon from "./ProfileIcon";
+import ProfileIcon from "../atoms/ProfileIcon";
 import Rating from "./Rating";
-import { ReviewType } from "../pages/HomePage";
+import { ReviewType } from "../../interfaces/review.interface";
 
 interface PropType {
   review: ReviewType;

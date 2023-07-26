@@ -1,5 +1,5 @@
 import classes from "./Rating.module.css";
-import StarIcon from "./StarIcon";
+import StarIcon from "../atoms/StarIcon";
 
 interface PropType {
   reviewValue: number;

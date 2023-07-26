@@ -1,7 +1,7 @@
-import LargeProductCard from "./LargeProductCard";
+import LargeProductCard from "../molecules/LargeProductCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { ProductType } from "../pages/HomePage";
+import { ProductType } from "../../interfaces/product.interface";
 
 const splideOptions = {
   autoWidth: true,

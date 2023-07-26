@@ -1,5 +1,5 @@
-import filledStar from "../assets/svg/star-filled.svg";
-import outlinedStar from "../assets/svg/star-outlined.svg";
+import filledStar from "../../assets/svg/star-filled.svg";
+import outlinedStar from "../../assets/svg/star-outlined.svg";
 
 interface PropType {
   height?: string;

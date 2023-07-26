@@ -1,6 +1,6 @@
-import { ProductType } from "../pages/HomePage";
+import { ProductType } from "../../interfaces/product.interface";
 import classes from "./ProductArrayCompact.module.css";
-import CompactProductCard from "./CompactProductCard";
+import CompactProductCard from "../molecules/CompactProductCard";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 

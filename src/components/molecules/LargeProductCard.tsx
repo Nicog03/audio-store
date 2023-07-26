@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import classes from "./LargeProductCard.module.css";
 import { ArrowRight, Headphones } from "react-feather";
-import { ProductType } from "../pages/HomePage";
-import headset from "../assets/png/headset.png";
+import { ProductType } from "../../interfaces/product.interface";
+import headset from "../../assets/png/headset.png";
 
 import { motion } from "framer-motion";
 
