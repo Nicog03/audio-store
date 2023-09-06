@@ -93,6 +93,12 @@ The data is fetched from a provided API, so each product has a unique informatio
 
 ### All Products Page
 
+This page is rserved to initially display all products present on the catalog, the idea here is to offer a broad view of all products as well as basic info like the price, the review score and also the quantity of reviews.
+
+#### Filter
+
+One of the most interesting features of this page, if not of the whole application, is the filter. It's purpose is to limit or sort the products that are displayed by setting some specific rules that the product must fulfill, here the user can opt to display products based on the category, and a specific price range; it is also possible to sort the products based on the price or the data at which it was created.
+
 ---
 
 ### Cart Page
