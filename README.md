@@ -46,9 +46,9 @@ offers an extremely easy way to build carousel sliders, it is extensively used o
 
 The app itself has a lot of pages, each one with its own specifications and functionalities making so that every page is unique in some way.
 
-### Sign In
-
 ---
+
+### Sign In
 
 Here is where you can choose to sign in to an existing account or even create a new one from the start.
 
@@ -64,6 +64,8 @@ One of the most important aspects of this form is the fact that it always valida
 
 In case the user forgets the password to its account, i can accests the password recovery page by clicking on the _'Forgot Password?'_ button right below the sign in inputs. The user can then fill its email on the given input, and then redefine its password by following the steps presented on the email.
 
+---
+
 ### Home Page
 
 ---
@@ -77,5 +79,3 @@ In case the user forgets the password to its account, i can accests the password
 ---
 
 ### Cart Page
-
----
