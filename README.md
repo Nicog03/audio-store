@@ -8,33 +8,34 @@ The main idea here was to create an application which would make use of all the 
 
 The project itself is composed by a variety of technologies, some used simply for appearance purpose others for key functionalities of the applications. Some of those are:
 
-- [React](https://react.dev/)
+### [React](https://react.dev/)
 
-  - The base in which the entire project is built upon
+The base in which the entire project is built upon
 
-- [Firebase](https://firebase.google.com/)
+### [Firebase](https://firebase.google.com/)
 
-  - Used specifically for its authentication capabilities
+Used specifically for its authentication capabilities
 
-- CSS Modules
+### CSS Modules
 
-  - For the styling of most of the application
+For the styling of most of the application
 
-- [framer-motion](https://www.framer.com/motion/)
+### [framer-motion](https://www.framer.com/motion/)
 
-  - offers animations that are useful when it comes to objects transitions, on the project it was mainly used to animate objects positions, improving the quality of the user interaction with the page.
+offers animations that are useful when it comes to objects transitions, on the project it was mainly used to animate objects positions, improving the quality of the user interaction with the page.
 
-- [react-feather](https://github.com/feathericons/react-feather)
+### [react-feather](https://github.com/feathericons/react-feather)
 
-  - the react-feather package offers a variety of ready-to-use icons. I stumbled upon this library when looking for icons to be used on the application, and was surprised by how much they offer and how easy it is to use.
+the react-feather package offers a variety of ready-to-use icons. I stumbled upon this library when looking for icons to be used on the application, and was surprised by how much they offer and how easy it is to use.
 
-- [react-spinners](https://github.com/davidhu2000/react-spinners)
+### [react-spinners](https://github.com/davidhu2000/react-spinners)
 
-  - this package offers a variety of loading icons, it was used exclusively on the login page as the users logs in, giving a visual feedback of the loading state of the page.
+this package offers a variety of loading icons, it was used exclusively on the login page as the users logs in, giving a visual feedback of the loading state of the page.
 
-- [react-spring-bottom-sheet](https://github.com/stipsan/react-spring-bottom-sheet)
+### [react-spring-bottom-sheet](https://github.com/stipsan/react-spring-bottom-sheet)
 
-  - it offers a bottom sheet that is extremely useful on a mobile layout, on this project in specific it is used to visualize the filter options at the 'all products' page.
+it offers a bottom sheet that is extremely useful on a mobile layout, on this project in specific it is used to visualize the filter options at the 'all products' page.
 
-- [splide](https://splidejs.com/)
-  - offers an extremely easy way to build carousel sliders, it is extensively used on the homepage as well as the product page to display a variety of products in an organized layout.
+### [splide](https://splidejs.com/)
+
+offers an extremely easy way to build carousel sliders, it is extensively used on the homepage as well as the product page to display a variety of products in an organized layout.
