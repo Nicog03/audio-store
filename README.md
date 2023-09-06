@@ -48,6 +48,8 @@ The app itself has a lot of pages, each one with its own specifications and func
 
 ### Sign In
 
+---
+
 Here is where you can choose to sign in to an existing account or even create a new one from the start.
 
 #### Overview
@@ -64,8 +66,16 @@ In case the user forgets the password to its account, i can accests the password
 
 ### Home Page
 
+---
+
 ### Product Page
+
+---
 
 ### All Products Page
 
+---
+
 ### Cart Page
+
+---
