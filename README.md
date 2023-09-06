@@ -68,6 +68,20 @@ In case the user forgets the password to its account, i can accests the password
 
 ### Home Page
 
+We can certainly say that the homepage is the face of the application, here you'll be greeted by the application (depending on the method that you used to sign in), you can browse for the most popular products, and even search for a specific product.
+
+#### Search
+
+The search bar allows the user to search the whole catalog for a specific product name, each time the user types on the search input, the page will present a list of products that have a title matching with what was typed by the user.
+Each product is returned in a form of a card, which when clicked will take the user to the product page of the product selected.
+
+#### Product Carousels
+
+This sections is mainly composed by products carousels, that vary which products are displayed according to the category selected by the user.
+The first carousel is a little bit large and is meant to display the most popular products, that is, those with a high user rating.
+The second carousel is supposed to have a larger scope, that means, more products are displayed here.
+On both carousels the user can click on product card, and upon doing so it is taken to its respective product page.
+
 ---
 
 ### Product Page
