@@ -42,7 +42,7 @@ it offers a bottom sheet that is extremely useful on a mobile layout, on this pr
 
 offers an extremely easy way to build carousel sliders, it is extensively used on the homepage as well as the product page to display a variety of products in an organized layout.
 
-## Overview
+## The App
 
 The app itself has a lot of pages, each one with its own specifications and functionalities making so that every page is unique in some way.
 
