@@ -86,6 +86,9 @@ On both carousels the user can click on product card, and upon doing so it is ta
 
 ### Product Page
 
+The product page is here to present the basic informations about the product, it contains its title, descriptions, a button to add the product to the cart, user reviews and a bottom carousel presenting other similar products.
+The data is fetched from a provided API, so each product has a unique information about itself.
+
 ---
 
 ### All Products Page
