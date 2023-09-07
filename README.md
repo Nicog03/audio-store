@@ -102,3 +102,6 @@ One of the most interesting features of this page, if not of the whole applicati
 ---
 
 ### Cart Page
+
+Here, the user can keep track of all the products that were added trough the product page, this page automatically takes into account the ammount and the price of each product present on the cart, so that it can display the total value of the cart.
+The user has also the ability to alter the quantity of each product individually. It is also possible to entirely remove one product at once or even clear the whole cart at once.
