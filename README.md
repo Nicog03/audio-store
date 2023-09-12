@@ -68,6 +68,8 @@ In case the user forgets the password to its account, i can accests the password
 
 ### Home Page
 
+[visual example of the home page]('readme-assets/homepage.gif')
+
 We can certainly say that the homepage is the face of the application, here you'll be greeted by the application (depending on the method that you used to sign in), you can browse for the most popular products, and even search for a specific product.
 
 #### Search
@@ -102,6 +104,8 @@ One of the most interesting features of this page, if not of the whole applicati
 ---
 
 ### Cart Page
+
+[visual example of the cart page]('readme-assets/cart.gif')
 
 Here, the user can keep track of all the products that were added trough the product page, this page automatically takes into account the ammount and the price of each product present on the cart, so that it can display the total value of the cart.
 The user has also the ability to alter the quantity of each product individually. It is also possible to entirely remove one product at once or even clear the whole cart at once.
